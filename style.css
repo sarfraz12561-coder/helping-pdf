@@ -1,0 +1,5 @@
+/* Add Tailwind-like hidden class if not using Tailwind utilities */
+.hidden {
+    display: none !important;
+}
+/* (Other styles remain unchanged) */
