@@ -18,7 +18,7 @@
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" id="logo-link" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
             <ul class="flex space-x-6 text-sm font-medium">
-                <li><a href="#tools" id="nav-tools" class="hover:text-blue-600 transition">Tools</a></li>
+                <li><a href="compressor.html" id="nav-tools" class="hover:text-blue-600 transition">Tools</a></li>
                 <li><a href="#blog" class="hover:text-blue-600 transition">Blog</a></li>
                 <li><a href="#footer" class="hover:text-blue-600 transition">Contact</a></li>
             </ul>
@@ -26,19 +26,17 @@
     </header>
 
     <main>
-        <!-- Hero Section (same) -->
         <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 md:py-24">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">PDF tools that respect your privacy</h1>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">Compress, fill, and sign PDFs instantly – no account, no charges, no watermark. All processing stays on your device.</p>
                 <div id="core-instructions" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"></div>
                 <div class="mt-10">
-                    <a href="#tools" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">Try our tools</a>
+                    <a href="compressor.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">Try our tools</a>
                 </div>
             </div>
         </section>
 
-        <!-- Tool Grid Section (visible by default) -->
         <section id="tools-section" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Powerful PDF tools, <span class="text-blue-600">free forever</span></h2>
@@ -47,27 +45,22 @@
             </div>
         </section>
 
-        <!-- Tool Detail Section (hidden initially) -->
         <section id="tool-detail-section" class="py-20 bg-white hidden">
             <div class="container mx-auto px-4 max-w-4xl">
                 <button id="back-to-tools" class="mb-8 text-blue-600 font-medium flex items-center gap-1 hover:underline">
                     <span>←</span> Back to all tools
                 </button>
                 <div id="tool-detail-content"></div>
-                <!-- JSON-LD will be injected here -->
                 <div id="tool-schema"></div>
             </div>
         </section>
 
-        <!-- Blog Section (same) -->
         <section id="blog" class="py-20 bg-gray-50">
-            <!-- ... unchanged ... -->
-        </section>
+            </section>
     </main>
 
     <footer id="footer" class="bg-gray-900 text-gray-300 py-12">
-        <!-- ... unchanged ... -->
-    </footer>
+        </footer>
 
     <script src="config.js"></script>
     <script src="script.js"></script>
