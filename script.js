@@ -70,18 +70,16 @@ function renderToolGrid() {
     // Attach click event to each tool card
     document.querySelectorAll('.tool-card').forEach(card => {
         card.addEventListener('click', function() {
-            const toolId = this.dataset.toolId;
-            const tool = CONFIG.tools.find(t => t.id === toolId);
+            const toolId = card.getAttribute('data-tool-id');
             
-            // کارڈ کے اندر لکھے ہوئے نام کو پڑھنے کے لیے
-            const cardText = this.innerHTML.toLowerCase();
-            
-            // اگر کارڈ میں کہیں بھی 'compress' کا لفظ ہو تو فوراً نئے پیج پر بھیجو
-            if (cardText.includes('compress')) {
+            // اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو سیدھا compressor.html پر بھیجو
+            if (toolId === 'compress-pdf' || toolId === 'compress') {
                 window.location.href = 'compressor.html';
-            } else if (tool) {
-                showToolDetail(tool);
+                return;
             }
+
+            const tool = CONFIG.tools.find(t => t.id === toolId);
+            if (tool) showToolDetail(tool);
         });
     });
 }
@@ -136,4 +134,27 @@ function showToolsSection() {
 }
 
 function updateMeta(title, description) {
-    document
+    document.title = title;
+    document.getElementById('meta-title').textContent = title;
+    document.getElementById('meta-description').setAttribute('content', description);
+}
+
+function injectSchema(tool) {
+    const schemaContainer = document.getElementById('tool-schema');
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": tool.title,
+        "description": tool.metaDescription,
+        "applicationCategory": "Utility",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": tool.features.join(', '),
+        "keywords": tool.tags.join(', ')
+    };
+    schemaContainer.innerHTML = `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}<\/script>`;
+}
