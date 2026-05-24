@@ -72,7 +72,15 @@ function renderToolGrid() {
         card.addEventListener('click', function() {
             const toolId = this.dataset.toolId;
             const tool = CONFIG.tools.find(t => t.id === toolId);
-            if (tool) showToolDetail(tool);
+            
+            // تبدیل شدہ حصہ: اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو نئے پیج پر بھیجو
+            if (tool) {
+                if (toolId === 'compress-pdf') {
+                    window.location.href = 'compressor.html';
+                } else {
+                    showToolDetail(tool);
+                }
+            }
         });
     });
 }
