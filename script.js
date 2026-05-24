@@ -51,10 +51,6 @@ function renderToolGrid() {
         if (tool.color === 'purple') gradientClass = 'from-purple-50 to-violet-100';
         if (tool.color === 'amber') gradientClass = 'from-amber-50 to-orange-100';
 
-        // یہاں ہم چیک کر رہے ہیں کہ اگر یہ کمپریس ٹول ہے تو اس کا لنک compressor.html کر دو، ورنہ پرانا طریقہ چلنے دو
-        const isCompress = tool.id === 'compress-pdf' || tool.id === 'compress' || tool.title.toLowerCase().includes('compress');
-        const linkUrl = isCompress ? 'compressor.html' : #tool-${tool.id};
-
         return `
             <div class="tool-card group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-transparent cursor-pointer" data-tool-id="${tool.id}">
                 <div class="h-2 bg-gradient-to-r ${gradientClass}"></div>
@@ -63,29 +59,13 @@ function renderToolGrid() {
                     <h3 class="text-2xl font-bold mb-2">${tool.title}</h3>
                     <p class="text-gray-600 mb-4">${tool.description}</p>
                     <p class="text-xs text-gray-400 mb-4">${tool.tags.slice(0, 3).join(', ')}…</p>
-                    <a href="${linkUrl}" class="inline-flex items-center text-blue-600 font-medium group-hover:underline">
+                    <span class="inline-flex items-center text-blue-600 font-medium group-hover:underline">
                         Use tool <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
+                    </span>
                 </div>
             </div>
         `;
     }).join('');
-
-    // Attach click event to each tool card
-    document.querySelectorAll('.tool-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const toolId = this.dataset.toolId;
-            
-            if (toolId === 'compress-pdf' || toolId === 'compress') {
-                window.location.href = 'compressor.html';
-                return;
-            }
-            
-            const tool = CONFIG.tools.find(t => t.id === toolId);
-            if (tool) showToolDetail(tool);
-        });
-    });
-}
 
     // Attach click event to each tool card
     document.querySelectorAll('.tool-card').forEach(card => {
