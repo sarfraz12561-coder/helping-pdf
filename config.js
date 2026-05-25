@@ -15,7 +15,7 @@ const CONFIG = {
     tools: [
         {
             active: true,
-            id: "compress",
+            id: "compressor",
             title: "PDF Compressor",
             description: "High‑quality compression that reduces file size while keeping text sharp and images clear. Ideal for email or sharing.",
             metaDescription: "Free secure PDF compressor: reduce file size without losing quality. Compress PDF to 100kb, 200kb – no watermark, local processing.",
