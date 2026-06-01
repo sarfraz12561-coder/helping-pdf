@@ -14,37 +14,46 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <header class="bg-white shadow-sm sticky top-0 z-10">
-    <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="./" id="logo-link" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
+        <header class="bg-white shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="./" id="logo-link" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
             <ul class="flex space-x-6 text-sm font-medium">
-            <li><a href="./" class="text-blue-600 font-semibold hover:text-blue-700 transition">Home</a></li>
-            <li><a href="#tools-section" data-nav-bypass class="hover:text-blue-600 transition">Tools</a></li>
-            <li><a href="#blog" data-nav-bypass class="hover:text-blue-600 transition">Blog</a></li>
-            <li><a href="#footer" data-nav-bypass class="hover:text-blue-600 transition">Contact</a></li>
-        </ul>
-            
-    </nav>
-</header>
-
+                <li><a href="./" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">Home</a></li>
+                <li><a href="#tools-section" data-nav-bypass class="text-gray-600 hover:text-blue-600 transition-colors">Tools</a></li>
+                <li><a href="#blog" data-nav-bypass class="text-gray-600 hover:text-blue-600 transition-colors">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 md:py-24">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">PDF tools that respect your privacy</h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">Compress, fill, and sign PDFs instantly – no account, no charges, no watermark. All processing stays on your device.</p>
-                <div id="core-instructions" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"></div>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">Compress, fill, and sign PDFs instantly - no account needed, 100% free and secure.</p>
+                <div id="core-instructions" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center gap-2 text-gray-700 font-medium text-sm">
+                        <span class="text-green-500 font-bold">✓</span> No Account Required
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center gap-2 text-gray-700 font-medium text-sm">
+                        <span class="text-green-500 font-bold">✓</span> No Hidden Charges
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center gap-2 text-gray-700 font-medium text-sm">
+                        <span class="text-green-500 font-bold">✓</span> No Watermarks Ever
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center gap-2 text-gray-700 font-medium text-sm">
+                        <span class="text-green-500 font-bold">✓</span> Safe & Secure Local Processing
+                    </div>
+                </div>
                 <div class="mt-10">
-                    <a href="#tools-section" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">Try our tools</a>
-                        
+                    <a href="#tools-section" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition">Try our tools</a>
                 </div>
             </div>
         </section>
 
         <section id="tools-section" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Powerful PDF tools, <span class="text-blue-600">free forever</span></h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">No hidden costs, no sign‑up – just drag, drop, and done.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-950">Powerful PDF Tools</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">No hidden costs, no signup - just drag, drop and process your documents safely in your browser.</p>
                 <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
         </section>
@@ -52,60 +61,77 @@
         <section id="tool-detail-section" class="py-20 bg-white hidden">
             <div class="container mx-auto px-4 max-w-4xl">
                 <button id="back-to-tools" class="mb-8 text-blue-600 font-medium flex items-center gap-1 hover:underline">
-                    <span>←</span> Back to all tools
+                    <span>&larr;</span> Back to all tools
                 </button>
                 <div id="tool-detail-content"></div>
                 <div id="tool-schema"></div>
             </div>
+        </section>
+
         <section id="blog" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <!-- بلاگ سیکشن کا مین ٹائٹل اور رنگ -->
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Latest PDF Guides & Tips</h2>
-            <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Learn how to manage your documents easily with our free expert tips and articles.</p>
-        </div>
-        
-        <!-- بلاگ کارڈز کا مین گرڈ (ڈھانچہ) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- پہلا خوبصورت بلاگ کارڈ (اسٹرکچر) -->
-            <div class="flex flex-col rounded-2xl shadow-md overflow-hidden bg-white border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <!-- کارڈ کے اندر کا ٹیکسٹ اور پیڈنگ -->
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <div class="flex-1">
-                        <!-- چھوٹا ٹیگ (کیٹیگری) -->
-                        <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Tips</span>
-                        <!-- بلاگ کی مین ہیڈنگ -->
-                        <a href="#" class="block mt-4">
-                            <p class="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors">How to Compress PDF Without Losing Quality</p>
-                            <!-- بلاگ کی چھوٹی تفصیل -->
-                            <p class="mt-3 text-base text-gray-500">Discover the best secrets to reduce file size while keeping your text and images crystal clear and readable.</p>
-                        </a>
-                    </div>
-                    <!-- نیچھے بٹن کا لنک -->
-                    <div class="mt-6 flex items-center">
-                        <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
-                            Read Full Article <span aria-hidden="true">&rarr;</span>
-                        </a>
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Latest PDF Guides & Tips</h2>
+                    <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Learn how to manage your documents easily with our free expert tips and articles.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col rounded-2xl shadow-md overflow-hidden bg-white border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Tips</span>
+                                <a href="#" class="block mt-4">
+                                    <p class="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors">How to Compress PDF Without Losing Quality</p>
+                                    <p class="mt-3 text-base text-gray-500">Discover the best secrets to reduce file size while keeping your text and images crystal clear and readable.</p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center">
+                                <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                                    Read Full Article <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- یہاں آپ فیوچر میں دوسرا کارڈ کاپی پیسٹ کر سکتے ہیں -->
-            <!-- یہاں آپ فیوچر میں تیسرا کارڈ کاپی پیسٹ کر سکتے ہیں -->
-
-        </div>
-    </div>
         </section>
-            
-        <section id="blog" class="py-20 bg-gray-50">
-            </section>
     </main>
 
-    <footer id="footer" class="bg-gray-900 text-gray-300 py-12">
-        </footer>
-
-    <script src="config.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+    <footer id="footer" class="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">📄 Helping PDF</h3>
+                    <p class="text-sm text-gray-400">Your safe, secure, and fast solution for all your PDF document requirements. Completely local and private processing right in your browser.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Our Guarantee</h3>
+                    <ul class="text-sm space-y-2">
+                        <li class="text-green-400 flex items-center gap-1">✓ No Account Required</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ 100% Free - No Hidden Charges</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ No Watermarks Ever</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ Safe & Secure Local Processing</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Contact Us</h3>
+                    <p class="text-sm text-gray-400 mb-2">Have any questions, suggestions, or feedback? Feel free to reach out via email.</p>
+                    <a href="mailto:sarfraz12561@gmail.com" class="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors">contact@helpingpdf.com</a>
+                </div>
+                
+            </div>
+            
+            <hr class="border-gray-900 my-6" />
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 Helping PDF. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
