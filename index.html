@@ -14,58 +14,59 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-        <header class="bg-white shadow-sm sticky top-0 z-10">
+            <!-- پرانا خوبصورت ہیڈر -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
             <a href="./" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
-            <ul class="flex space-x-6 text-sm font-medium text-gray-600">
-                <li><a href="./" class="hover:text-blue-600">Home</a></li>
-                <li><a href="#tools-section" class="hover:text-blue-600">Tools</a></li>
-                <li><a href="#blog" class="hover:text-blue-600">Blog</a></li>
+            <ul class="flex space-x-6 text-sm font-medium">
+                <li><a href="./" class="text-blue-600 font-semibold">Home</a></li>
+                <li><a href="#tools-section" class="text-gray-600 hover:text-blue-600">Tools</a></li>
+                <li><a href="#blog" class="text-gray-600 hover:text-blue-600">Blog</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- ہیرو سیکشن -->
-        <section class="bg-blue-50 py-12 text-center">
-            <h1 class="text-4xl font-extrabold mb-4 text-gray-900">PDF tools that respect your privacy</h1>
-            <div id="core-instructions" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto px-4 mt-8 text-sm">
-                <div class="bg-white p-3 rounded-lg shadow-sm border">✓ No Account</div>
-                <div class="bg-white p-3 rounded-lg shadow-sm border">✓ No Charges</div>
-                <div class="bg-white p-3 rounded-lg shadow-sm border">✓ No Watermarks</div>
-                <div class="bg-white p-3 rounded-lg shadow-sm border">✓ Safe Local Processing</div>
+        <!-- پرانا ہیرو سیکشن -->
+        <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 text-center">
+            <h1 class="text-4xl font-extrabold mb-6 text-gray-900">PDF tools that respect your privacy</h1>
+            <!-- پرانی سٹائل کی ہدایات (اوپر نیچے) -->
+            <div id="core-instructions" class="flex flex-col gap-2 max-w-sm mx-auto mb-8 text-sm text-red-600 font-bold">
+                <p>✓ No Account Required</p>
+                <p>✓ 100% Free - No Hidden Charges</p>
+                <p>✓ No Watermarks Ever</p>
+                <p>✓ Safe & Secure Local Processing</p>
             </div>
+            <a href="#tools-section" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold">Try Tools</a>
         </section>
 
-        <!-- ٹولز سیکشن -->
-        <section id="tools-section" class="py-16">
+        <!-- ٹولز سیکشن (یہاں سے ٹولز نظر آئیں گے) -->
+        <section id="tools-section" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-10">Powerful PDF Tools</h2>
-                <!-- ٹولز واپس آ گئے -->
-                <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+                <h2 class="text-3xl font-bold text-center mb-10 text-gray-950">Powerful PDF Tools</h2>
+                <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
             </div>
         </section>
 
-        <!-- بلاگ سیکشن (رنگین ڈیزائن) -->
-        <section id="blog" class="py-20 bg-indigo-900 text-white">
+        <!-- نیا بلاگ سیکشن (پرانے ڈیزائن میں رنگین اضافہ) -->
+        <section id="blog" class="py-20 bg-red-50 border-t-4 border-red-500">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-extrabold mb-8">Latest PDF Guides & Tips</h2>
-                <div class="bg-white text-gray-900 p-8 rounded-2xl max-w-lg mx-auto shadow-xl">
-                    <p class="font-semibold text-lg">How to Compress PDF Without Losing Quality</p>
-                    <p class="text-gray-600 mt-2 mb-4">Discover the best secrets to reduce file size...</p>
-                    <a href="#" class="text-blue-600 font-bold">Read Full Article →</a>
+                <h2 class="text-3xl font-extrabold mb-8 text-red-900">Latest PDF Guides</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg inline-block max-w-sm border-l-4 border-red-500">
+                    <p class="font-bold text-lg">How to Compress PDF</p>
+                    <a href="#" class="text-red-600 font-semibold">Read Article →</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="footer" class="bg-gray-900 text-gray-400 py-10 text-sm text-center">
-        <p class="mb-4">© 2026 Helping PDF. All rights reserved.</p>
+    <!-- فوٹر -->
+    <footer id="footer" class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+        <p class="mb-4">&copy; 2026 Helping PDF</p>
         <div class="space-x-4">
             <a href="#" class="hover:text-white">Privacy Policy</a>
             <a href="#" class="hover:text-white">Terms of Service</a>
             <a href="mailto:sarfraz12561@gmail.com" class="hover:text-white">contact@helpingpdf.com</a>
         </div>
     </footer>
-            
-    
+
