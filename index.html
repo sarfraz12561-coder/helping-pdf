@@ -44,7 +44,30 @@
             </div>
         </section>
 
-        <section id="tools-section" class="py-20 bg-white">
+        <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Compress PDF Tool -->
+    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition flex flex-col">
+        <div class="text-3xl mb-4">🗜️</div>
+        <h3 class="text-xl font-bold mb-2">Compress PDF</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Reduce the file size of your PDF documents quickly.</p>
+        <button data-tool="compress" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl">Launch Tool</button>
+    </div>
+    <!-- Fill PDF Tool -->
+    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition flex flex-col">
+        <div class="text-3xl mb-4">📝</div>
+        <h3 class="text-xl font-bold mb-2">Fill PDF Forms</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Easily fill out interactive PDF forms online.</p>
+        <button data-tool="fill" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl">Launch Tool</button>
+    </div>
+    <!-- Sign PDF Tool -->
+    <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition flex flex-col">
+        <div class="text-3xl mb-4">✍️</div>
+        <h3 class="text-xl font-bold mb-2">Sign PDF</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Add your digital signature to your PDF documents.</p>
+        <button data-tool="sign" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl">Launch Tool</button>
+    </div>
+</div>
+
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-950">Powerful PDF Tools</h2>
                 <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">No hidden costs, no signup - just drag, drop and process your documents safely in your browser.</p>
