@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="meta-title">Helping PDF Tool - Compress, Fill, Sign PDFs Securely</title>
-    <meta name="description" id="meta-description" content="Free online PDF tools: Compress, fill forms, and add signatures. No account, no watermark, 100% secure local processing.">
+    <meta name="description" content="Free online PDF tools: Compress, fill forms, and add signature.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
@@ -14,59 +14,108 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-            <!-- پرانا خوبصورت ہیڈر -->
     <header class="bg-white shadow-sm sticky top-0 z-10">
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="./" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
+            <a href="./" id="logo-link" class="text-2xl font-bold text-blue-600">📄 Helping PDF</a>
             <ul class="flex space-x-6 text-sm font-medium">
                 <li><a href="./" class="text-blue-600 font-semibold">Home</a></li>
-                <li><a href="#tools-section" class="text-gray-600 hover:text-blue-600">Tools</a></li>
-                <li><a href="#blog" class="text-gray-600 hover:text-blue-600">Blog</a></li>
+                <li><a href="#tools-section" data-nav-bypass class="text-gray-600 hover:text-blue-600 transition">Tools</a></li>
+                <li><a href="#blog" data-nav-bypass class="text-gray-600 hover:text-blue-600 transition">Blog</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- پرانا ہیرو سیکشن -->
-        <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 text-center">
-            <h1 class="text-4xl font-extrabold mb-6 text-gray-900">PDF tools that respect your privacy</h1>
-            <!-- پرانی سٹائل کی ہدایات (اوپر نیچے) -->
-            <div id="core-instructions" class="flex flex-col gap-2 max-w-sm mx-auto mb-8 text-sm text-red-600 font-bold">
-                <p>✓ No Account Required</p>
-                <p>✓ 100% Free - No Hidden Charges</p>
-                <p>✓ No Watermarks Ever</p>
-                <p>✓ Safe & Secure Local Processing</p>
+        <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">PDF tools that respect your privacy</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">Compress, fill, and sign PDFs instantly - no account needed, 100% free and secure.</p>
+                
+                <div id="core-instructions" class="flex flex-col gap-3 max-w-md mx-auto mb-10 text-left bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-red-600 font-bold text-base flex items-center gap-2">✓ No Account Required</p>
+                    <p class="text-red-600 font-bold text-base flex items-center gap-2">✓ 100% Free - No Hidden Charges</p>
+                    <p class="text-red-600 font-bold text-base flex items-center gap-2">✓ No Watermarks Ever</p>
+                    <p class="text-red-600 font-bold text-base flex items-center gap-2">✓ Safe & Secure Local Processing</p>
+                </div>
+
+                <div>
+                    <a href="#tools-section" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition">Try our tools</a>
+                </div>
             </div>
-            <a href="#tools-section" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold">Try Tools</a>
         </section>
 
-        <!-- ٹولز سیکشن (یہاں سے ٹولز نظر آئیں گے) -->
         <section id="tools-section" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-10 text-gray-950">Powerful PDF Tools</h2>
-                <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-950">Powerful PDF Tools</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">No hidden costs, no signup - just drag, drop and process your documents safely in your browser.</p>
+                <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
         </section>
 
-        <!-- نیا بلاگ سیکشن (پرانے ڈیزائن میں رنگین اضافہ) -->
-        <section id="blog" class="py-20 bg-red-50 border-t-4 border-red-500">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-extrabold mb-8 text-red-900">Latest PDF Guides</h2>
-                <div class="bg-white p-6 rounded-xl shadow-lg inline-block max-w-sm border-l-4 border-red-500">
-                    <p class="font-bold text-lg">How to Compress PDF</p>
-                    <a href="#" class="text-red-600 font-semibold">Read Article →</a>
+        <section id="tool-detail-section" class="py-20 bg-white hidden">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <button id="back-to-tools" class="mb-8 text-blue-600 font-medium flex items-center gap-1 hover:underline">
+                    <span>&larr;</span> Back to all tools
+                </button>
+                <div id="tool-detail-content"></div>
+                <div id="tool-schema"></div>
+            </div>
+        </section>
+
+        <section id="blog" class="py-16 bg-red-50 border-t-4 border-red-500">
+            <div class="container mx-auto px-4 max-w-xl text-center">
+                <h2 class="text-3xl font-extrabold text-red-900 mb-6">Latest PDF Guides & Tips</h2>
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-red-100 text-left hover:shadow-xl transition duration-300">
+                    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Tips</span>
+                    <h3 class="text-xl font-bold text-gray-900 mt-4">How to Compress PDF Without Losing Quality</h3>
+                    <p class="text-base text-gray-500 mt-2 mb-4">Discover the best secrets to reduce file size while keeping your text and images crystal clear and readable.</p>
+                    <a href="#" class="text-sm font-semibold text-red-600 hover:text-red-700 flex items-center gap-1">
+                        Read Full Article &rarr;
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- فوٹر -->
-    <footer id="footer" class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-        <p class="mb-4">&copy; 2026 Helping PDF</p>
-        <div class="space-x-4">
-            <a href="#" class="hover:text-white">Privacy Policy</a>
-            <a href="#" class="hover:text-white">Terms of Service</a>
-            <a href="mailto:sarfraz12561@gmail.com" class="hover:text-white">contact@helpingpdf.com</a>
+    <footer id="footer" class="bg-gray-950 text-gray-400 py-12 border-t border-gray-900 text-sm">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">📄 Helping PDF</h3>
+                    <p class="text-xs text-gray-400">Your safe, secure, and fast solution for all your PDF document requirements. Completely local and private processing right in your browser.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Our Guarantee</h3>
+                    <ul class="text-xs space-y-2">
+                        <li class="text-green-400 flex items-center gap-1">✓ No Account Required</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ 100% Free - No Hidden Charges</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ No Watermarks Ever</li>
+                        <li class="text-green-400 flex items-center gap-1">✓ Safe & Secure Local Processing</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Contact Us</h3>
+                    <p class="text-xs text-gray-400 mb-2">Have any questions, suggestions, or feedback? Feel free to reach out via email.</p>
+                    <a href="mailto:sarfraz12561@gmail.com" class="text-blue-400 hover:text-blue-300 font-medium transition-colors">contact@helpingpdf.com</a>
+                </div>
+                
+            </div>
+            
+            <hr class="border-gray-900 my-6" />
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 Helping PDF. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
+</body>
+</html>
