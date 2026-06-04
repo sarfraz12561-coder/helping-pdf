@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Navigation "Tools" link
-    document.getElementById('nav-tools').addEventListener('click', function(e) {
-        e.preventDefault();
-        showToolsSection();
-    });
+document.getElementById('nav-tools').addEventListener('click', function(e) {
+    e.preventDefault();
+    showToolsSection();
+    
+    // یہ نیچے والی لائن جادو کرے گی اور پیج کو آرام سے سکرول کر کے نیچے لے جائے گی
+    document.getElementById('tools-section').scrollIntoView({ behavior: 'smooth' });
+});
 });
 
 function renderInstructions() {
