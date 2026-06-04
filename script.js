@@ -161,3 +161,22 @@ function injectSchema(tool) {
     };
     schemaContainer.innerHTML = `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}<\/script>`;
 }
+// Navigation "Blog" link with smooth scroll
+const navBlogLink = document.querySelector('a[href="#blog"]');
+if (navBlogLink) {
+    navBlogLink.addEventListener('click', function(e) {
+        e.preventDefault(); // یہ لائن جھٹکے کو روکے گی
+        
+        // 1. اگر صارف کسی ٹول کے اندر گیا ہوا ہے، تو ہوم پیج کو واپس لانا
+        const toolsSection = document.getElementById('tools-section');
+        const toolDetailSection = document.getElementById('tool-detail-section');
+        if (toolsSection) toolsSection.classList.remove('hidden');
+        if (toolDetailSection) toolDetailSection.classList.add('hidden');
+
+        // 2. بلاگ سیکشن کو ڈھونڈ کر وہاں آرام سے سکرول کرنا
+        const blogSection = document.getElementById('blog');
+        if (blogSection) {
+            blogSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
