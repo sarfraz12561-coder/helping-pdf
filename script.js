@@ -55,7 +55,7 @@ function renderToolGrid() {
         if (tool.color === 'amber') gradientClass = 'from-amber-50 to-orange-100';
 
         return `
-            <<div class="tool-card group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer relative ${tool.isComingSoon ? 'opacity-90' : ''}" data-tool-id="${tool.id}">
+        <div class="tool-card group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer relative h-full flex flex-col ${tool.isComingSoon ? 'opacity-95' : ''}" data-tool-id="${tool.id}">
                 <div class="h-2 bg-gradient-to-r ${gradientClass}"></div>
                 <div class="p-6">
                 ${tool.isComingSoon ? `
