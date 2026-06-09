@@ -55,9 +55,15 @@ function renderToolGrid() {
         if (tool.color === 'amber') gradientClass = 'from-amber-50 to-orange-100';
 
         return `
-            <div class="tool-card group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-transparent cursor-pointer" data-tool-id="${tool.id}">
+            <<div class="tool-card group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer relative ${tool.isComingSoon ? 'opacity-90' : ''}" data-tool-id="${tool.id}">
                 <div class="h-2 bg-gradient-to-r ${gradientClass}"></div>
                 <div class="p-6">
+                ${tool.isComingSoon ? `
+    <span class="absolute top-3 right-3 bg-red-100 text-red-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest shadow-sm animate-pulse z-10">
+        COMING SOON
+    </span>
+` : ''}
+
                     <div class="text-5xl mb-4">${tool.icon}</div>
                     <h3 class="text-2xl font-bold mb-2">${tool.title}</h3>
                     <p class="text-gray-600 mb-4">${tool.description}</p>
@@ -74,6 +80,13 @@ function renderToolGrid() {
     document.querySelectorAll('.tool-card').forEach(card => {
         card.addEventListener('click', function() {
             const toolId = card.getAttribute('data-tool-id');
+                // اگر ٹول کمنگ سون ہے تو الرٹ دکھا کر روک دو
+    const currentTool = CONFIG.tools.find(t => t.id === toolId);
+    if (currentTool && currentTool.isComingSoon) {
+        alert(`${currentTool.title} is coming soon! We are working hard to launch it.`);
+        return;
+    }
+            
             
             // اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو سیدھا compressor.html پر بھیجو
             if (toolId === 'compress-pdf' || toolId === 'compress') {
