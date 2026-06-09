@@ -69,7 +69,7 @@ function renderToolGrid() {
                     <p class="text-gray-600 mb-4">${tool.description}</p>
                     <p class="text-xs text-gray-400 mb-4">${tool.tags.slice(0, 3).join(', ')}…</p>
                     <span class="inline-flex items-center text-blue-600 font-medium group-hover:underline">
-                        Use tool <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                    ${tool.isComingSoon ? '' : '<span class="inline-flex items-center text-blue-500 font-medium group-hover:underline">Use tool <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span></span>'}
                     </span>
                 </div>
             </div>
