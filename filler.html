@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fill PDF Online Free – Add Text to PDF No Account | Helping PDF</title>
+  <meta name="description" content="Fill PDF forms online free. Click anywhere on your PDF to type text, choose font size and color, then download instantly. No account, no watermark, 100% private – your file never leaves your device." />
+  <meta name="keywords" content="fill pdf online free, pdf form filler, type on pdf, add text to pdf free, fill pdf without adobe, online pdf editor free, fill pdf no account, pdf filler no watermark" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Helping PDF" />
+  <link rel="canonical" href="https://www.helpingpdf.com/filler.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fill PDF Online Free – No Account, No Watermark | Helping PDF" />
+  <meta property="og:description" content="Click anywhere on your PDF to type. No uploads to servers. No sign-up needed. Free forever." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.helpingpdf.com/filler.html" />
+  <meta property="og:site_name" content="Helping PDF" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF Form Filler – Helping PDF",
+    "url": "https://www.helpingpdf.com/filler.html",
+    "description": "Fill PDF forms online free. Click anywhere on your PDF to add text, choose font size and color, then download instantly. No account required.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "Fill PDF forms, Add text to PDF, Multi-page PDF support, Download filled PDF, No watermark, No account required"
+  }
+  </script>
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- PDF-lib -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --success: #16a34a;
+      --success-light: #f0fdf4;
+      --success-border: #bbf7d0;
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --surface2: #f8fafc;
+      --text: #0f172a;
+      --text2: #475569;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+      --toolbar-bg: #1e293b;
+      --toolbar-btn: #334155;
+      --toolbar-border: #475569;
+      --toolbar-text: #e2e8f0;
+      --toolbar-muted: #94a3b8;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #162032;
+      --text: #f1f5f9;
+      --text2: #94a3b8;
+      --border: #334155;
+      --primary-light: #1e3a5f;
+      --primary-border: #3b5998;
+      --success-light: #14532d;
+      --success-border: #166534;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: var(--shadow);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--primary); background: var(--primary-light); }
+    nav a.active { color: var(--primary); font-weight: 700; }
+
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    .theme-toggle {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 52px 20px 36px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-border);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span { color: var(--primary); }
+
+    .hero p {
+      color: var(--text2);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 13px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-border);
+    }
+
+    .badge.green {
+      background: var(--success-light);
+      color: var(--success);
+      border-color: var(--success-border);
+    }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 28px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    /* ── UPLOAD ZONE ── */
+    #upload-zone {
+      border: 2.5px dashed var(--primary-border);
+      border-radius: var(--radius);
+      background: var(--primary-light);
+      padding: 64px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    #upload-zone:hover, #upload-zone.drag-over {
+      border-color: var(--primary);
+      background: #dbeafe;
+    }
+
+    [data-theme="dark"] #upload-zone { background: #1e3a5f; border-color: #3b82f6; }
+    [data-theme="dark"] #upload-zone:hover { background: #1a3558; }
+
+    .upload-icon { font-size: 3.5rem; display: block; margin-bottom: 14px; }
+
+    #upload-zone h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+      color: var(--text);
+    }
+
+    #upload-zone p {
+      color: var(--text2);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    .btn-browse {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 34px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+    }
+    .btn-browse:hover { background: var(--primary-dark); }
+
+    /* ── TOOLBAR ── */
+    #toolbar {
+      display: none;
+      background: var(--toolbar-bg);
+      padding: 10px 14px;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    #toolbar.visible { display: flex; }
+
+    .tlabel {
+      color: var(--toolbar-muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .tsep {
+      width: 1px;
+      height: 26px;
+      background: var(--toolbar-border);
+      margin: 0 3px;
+    }
+
+    .tool-btn {
+      background: var(--toolbar-btn);
+      color: var(--toolbar-text);
+      border: 1px solid var(--toolbar-border);
+      padding: 6px 13px;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tool-btn:hover, .tool-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    #font-size-select {
+      background: var(--toolbar-btn);
+      color: var(--toolbar-text);
+      border: 1px solid var(--toolbar-border);
+      padding: 6px 8px;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    #color-picker {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--toolbar-border);
+      border-radius: 7px;
+      cursor: pointer;
+      padding: 2px;
+      background: var(--toolbar-btn);
+    }
+
+    .btn-dl {
+      margin-left: auto;
+      background: var(--success);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(22,163,74,0.3);
+      transition: background 0.2s;
+    }
+    .btn-dl:hover { background: #15803d; }
+    .btn-dl:disabled { background: #64748b; box-shadow: none; cursor: not-allowed; }
+
+    .btn-newfile {
+      background: var(--toolbar-btn);
+      color: var(--toolbar-text);
+      border: 1px solid var(--toolbar-border);
+      padding: 7px 13px;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-newfile:hover { background: #64748b; }
+
+    /* ── HINT ── */
+    #hint-bar {
+      background: #fffbeb;
+      border-bottom: 1px solid #fde68a;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      color: #92400e;
+      text-align: center;
+      display: none;
+    }
+    [data-theme="dark"] #hint-bar { background: #292200; color: #fbbf24; border-color: #78350f; }
+
+    /* ── PAGE NAV ── */
+    #page-nav {
+      background: #0f172a;
+      padding: 9px 16px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #e2e8f0;
+      font-size: 0.84rem;
+    }
+    #page-nav.visible { display: flex; }
+
+    .pg-btn {
+      background: #334155;
+      color: #e2e8f0;
+      border: 1px solid #475569;
+      padding: 5px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .pg-btn:hover:not(:disabled) { background: var(--primary); border-color: var(--primary); }
+    .pg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* ── CANVAS ── */
+    #canvas-wrapper {
+      display: none;
+      position: relative;
+      overflow: auto;
+      background: #475569;
+      min-height: 420px;
+      max-height: 72vh;
+    }
+    #canvas-wrapper.visible { display: block; }
+    #pdf-canvas {
+      display: block;
+      margin: 20px auto;
+      box-shadow: var(--shadow-lg);
+      cursor: crosshair;
+    }
+
+    /* ── TEXTBOXES ── */
+    .pdf-textbox {
+      position: absolute;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #3b82f6;
+      outline: none;
+      padding: 2px 4px;
+      min-width: 60px;
+      resize: none;
+      overflow: hidden;
+      cursor: text;
+      line-height: 1.35;
+      z-index: 20;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    .pdf-textbox:focus { border-bottom-color: #f59e0b; background: rgba(254,243,199,0.28); }
+    .pdf-textbox.selected { border: 1.5px dashed #f59e0b; border-radius: 3px; }
+
+    .box-delete {
+      position: absolute;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.6rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* ── INFO SECTIONS ── */
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .info-card h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 16px; color: var(--text); }
+    .info-card h3 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+    .info-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; margin-bottom: 10px; }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .feat-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      transition: background 0.25s;
+    }
+    .feat-item .fi { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+    .feat-item strong { font-size: 0.88rem; display: block; margin-bottom: 4px; color: var(--text); }
+    .feat-item p { font-size: 0.8rem; color: var(--text2); margin: 0; line-height: 1.5; }
+
+    .steps-ol { list-style: none; counter-reset: st; padding: 0; }
+    .steps-ol li {
+      counter-increment: st;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .steps-ol li::before {
+      content: counter(st);
+      background: var(--primary);
+      color: white;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .steps-ol li p { margin: 0; color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+    .steps-ol li strong { color: var(--text); }
+
+    .check-list { list-style: none; padding: 0; margin: 10px 0; }
+    .check-list li {
+      color: var(--text2);
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 9px;
+    }
+    .check-list li:last-child { border: none; }
+    .check-list li::before { content: "✓"; color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+    /* ── RELATED TOOLS ── */
+    .related-tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .tool-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: block;
+    }
+    .tool-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .tool-card .tc-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .tool-card strong { font-size: 0.9rem; display: block; color: var(--text); margin-bottom: 4px; }
+    .tool-card p { font-size: 0.8rem; color: var(--text2); margin: 0; line-height: 1.5; }
+    .tool-card .tc-link { font-size: 0.78rem; color: var(--primary); font-weight: 700; margin-top: 8px; display: block; }
+
+    /* ── BLOG ── */
+    .blog-article {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .blog-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+    .blog-tag {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-border);
+    }
+    .blog-time { font-size: 0.78rem; color: var(--text2); }
+
+    .blog-article h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--text); line-height: 1.4; }
+    .blog-article h4 { font-size: 0.95rem; font-weight: 700; margin: 18px 0 8px; color: var(--text); }
+    .blog-article p { color: var(--text2); font-size: 0.9rem; line-height: 1.78; margin-bottom: 12px; }
+    .blog-article ul { list-style: none; padding: 0; margin: 8px 0 14px; }
+    .blog-article ul li {
+      color: var(--text2);
+      font-size: 0.88rem;
+      padding: 5px 0 5px 20px;
+      position: relative;
+      line-height: 1.6;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-article ul li:last-child { border: none; }
+    .blog-article ul li::before { content: "▶"; color: var(--primary); position: absolute; left: 0; font-size: 0.6rem; top: 9px; }
+    .blog-article strong { color: var(--text); }
+
+    .blog-cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 20px; }
+    .blog-card-sm {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .blog-card-sm:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .blog-card-sm .btag { font-size: 0.7rem; font-weight: 700; color: var(--primary); margin-bottom: 7px; display: block; text-transform: uppercase; letter-spacing: 0.04em; }
+    .blog-card-sm h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.4; }
+    .blog-card-sm p { font-size: 0.8rem; color: var(--text2); line-height: 1.55; }
+
+    .seo-keywords { color: var(--text2); font-size: 0.78rem; font-style: italic; line-height: 1.7; margin-top: 12px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px 16px;
+      font-size: 0.8rem;
+      color: var(--text2);
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      transition: background 0.25s;
+    }
+    .footer-brand { font-weight: 800; color: var(--text); font-size: 0.95rem; display: block; margin-bottom: 6px; }
+    footer p { max-width: 560px; margin: 0 auto 12px; line-height: 1.65; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
+    .footer-links a { color: var(--text2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 36px 16px 24px; }
+      .dl-label { display: none; }
+      #toolbar { gap: 5px; }
+      .tsep { display: none; }
+      nav a { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://www.helpingpdf.com/" class="logo" aria-label="Helping PDF Home">📄 <span>Helping PDF</span></a>
+  <nav aria-label="Main navigation">
+    <a href="https://www.helpingpdf.com/">Home</a>
+    <a href="https://www.helpingpdf.com/#tools-section" class="active">Tools</a>
+    <a href="https://www.helpingpdf.com/#blog-section">Blog</a>
+  </nav>
+  <div class="header-right">
+    <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark/light mode">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-label">Dark</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-eyebrow">Free Online PDF Tool</span>
+  <h1>Fill PDF Online <span>Free</span></h1>
+  <p>Click anywhere on your PDF and start typing instantly. Choose font size, text color, bold or italic — then download your filled PDF in seconds. No account. No watermark. Your file never leaves your device.</p>
+  <div class="badges">
+    <span class="badge">✓ No Account Required</span>
+    <span class="badge">✓ No Charges Ever</span>
+    <span class="badge">✓ No Watermark</span>
+    <span class="badge green">🔒 100% Private &amp; Secure</span>
+  </div>
+</div>
+
+<!-- TOOL -->
+<div class="container">
+<div class="card">
+
+  <!-- TOOLBAR -->
+  <div id="toolbar" role="toolbar" aria-label="Text formatting options">
+    <span class="tlabel">Size</span>
+    <select id="font-size-select" aria-label="Font size">
+      <option value="8">8px</option>
+      <option value="10">10px</option>
+      <option value="12">12px</option>
+      <option value="14" selected>14px</option>
+      <option value="16">16px</option>
+      <option value="18">18px</option>
+      <option value="22">22px</option>
+      <option value="28">28px</option>
+      <option value="36">36px</option>
+    </select>
+    <input type="color" id="color-picker" value="#000000" aria-label="Text color" title="Text Color" />
+    <div class="tsep"></div>
+    <button class="tool-btn" id="btn-bold" aria-pressed="false" title="Bold"><b>B</b></button>
+    <button class="tool-btn" id="btn-italic" aria-pressed="false" title="Italic"><i>I</i></button>
+    <div class="tsep"></div>
+    <button class="tool-btn" id="btn-undo" title="Undo last text box">↩ Undo</button>
+    <button class="tool-btn" id="btn-clear" title="Clear all text boxes on this page">🗑 Clear</button>
+    <div class="tsep"></div>
+    <button class="btn-newfile" id="btn-new">New File</button>
+    <button class="btn-dl" id="btn-download" disabled aria-label="Download filled PDF">
+      ⬇ <span class="dl-label">Download PDF</span>
+    </button>
+  </div>
+
+  <!-- HINT -->
+  <div id="hint-bar" role="status">
+    💡 <strong>Click anywhere on the PDF</strong> to place a text box. Drag it to reposition. Press ✕ to delete a box.
+  </div>
+
+  <!-- PAGE NAV -->
+  <div id="page-nav" aria-label="Page navigation">
+    <button class="pg-btn" id="btn-prev" aria-label="Previous page">◀ Prev</button>
+    <span id="page-info" aria-live="polite">Page 1 of 1</span>
+    <button class="pg-btn" id="btn-next" aria-label="Next page">Next ▶</button>
+  </div>
+
+  <!-- CANVAS -->
+  <div id="canvas-wrapper" role="main" aria-label="PDF viewer">
+    <canvas id="pdf-canvas"></canvas>
+  </div>
+
+  <!-- UPLOAD -->
+  <div id="upload-zone" role="button" tabindex="0" aria-label="Upload a PDF file to fill">
+    <span class="upload-icon">📋</span>
+    <h2>Drag &amp; Drop Your PDF Here</h2>
+    <p>or select a PDF file from your device to start filling it</p>
+    <button class="btn-browse" id="btn-browse">Browse PDF File</button>
+    <input type="file" id="file-input" accept="application/pdf" style="display:none" aria-label="Select PDF file" />
+  </div>
+
+</div><!-- /.card -->
+
+<!-- FEATURES -->
+<div class="info-card">
+  <h2>⭐ Why Use Helping PDF Form Filler?</h2>
+  <div class="feat-grid">
+    <div class="feat-item">
+      <span class="fi">🖱️</span>
+      <strong>Click Anywhere to Type</strong>
+      <p>Place a text box at any position on any page with a single click.</p>
+    </div>
+    <div class="feat-item">
+      <span class="fi">🎨</span>
+      <strong>Custom Fonts &amp; Colors</strong>
+      <p>Choose font size (8px–36px), text color, bold, and italic styling.</p>
+    </div>
+    <div class="feat-item">
+      <span class="fi">📄</span>
+      <strong>Multi-Page PDF Support</strong>
+      <p>Navigate and fill every page of your document with ease.</p>
+    </div>
+    <div class="feat-item">
+      <span class="fi">🔒</span>
+      <strong>100% Private</strong>
+      <p>Your file is never uploaded to any server. Everything runs in your browser.</p>
+    </div>
+    <div class="feat-item">
+      <span class="fi">📱</span>
+      <strong>Works on All Devices</strong>
+      <p>Android, iPhone, tablet, or laptop. No app or plugin required.</p>
+    </div>
+    <div class="feat-item">
+      <span class="fi">💾</span>
+      <strong>Instant Download</strong>
+      <p>Text is permanently embedded in the PDF and saved straight to your device.</p>
+    </div>
+  </div>
+
+  <h3>How to Fill Your PDF – 3 Quick Steps</h3>
+  <ol class="steps-ol">
+    <li><p><strong>Upload Your PDF:</strong> Drag and drop or click "Browse PDF File" to open any form, contract, or document from your device.</p></li>
+    <li><p><strong>Click &amp; Type:</strong> Click anywhere on the PDF to place a text box. Use the toolbar to change font size, color, bold, or italic. Drag any text box to reposition it.</p></li>
+    <li><p><strong>Download Your Filled PDF:</strong> Click the green Download button. Your text is permanently embedded and the PDF is saved directly to your device.</p></li>
+  </ol>
+
+  <h3>🔒 Is My Data Safe?</h3>
+  <p>Completely. Unlike tools that upload your private documents to foreign servers, Helping PDF processes everything on your own device using your browser. Once the page loads, it works fully offline. We never see, store, or share your files.</p>
+  <ul class="check-list">
+    <li>Works fully offline after page load</li>
+    <li>Zero data sent to any server — ever</li>
+    <li>No cookies, no tracking, no sign-up required</li>
+    <li>Text permanently embedded in the downloaded PDF</li>
+    <li>No watermark added — ever</li>
+  </ul>
+  <p class="seo-keywords">fill pdf online free • pdf form filler no sign up • type on pdf online • add text to pdf free • fill pdf without adobe acrobat • online pdf text editor • pdf filler no watermark</p>
+</div>
+
+<!-- RELATED TOOLS -->
+<div class="info-card">
+  <h2>🛠️ More Free PDF Tools</h2>
+  <p>Everything you need to work with PDF files — all free, all private, all in your browser.</p>
+  <div class="related-tools">
+    <a href="https://www.helpingpdf.com/compressor.html" class="tool-card">
+      <span class="tc-icon">📦</span>
+      <strong>PDF Compressor</strong>
+      <p>Reduce PDF file size without losing quality. Perfect for email and upload limits.</p>
+      <span class="tc-link">Use tool →</span>
+    </a>
+    <a href="https://www.helpingpdf.com/filler.html" class="tool-card" style="border-color:var(--primary)">
+      <span class="tc-icon">✍️</span>
+      <strong>PDF Form Filler</strong>
+      <p>You are here — fill any PDF form online free with click-to-type text boxes.</p>
+      <span class="tc-link">Current tool</span>
+    </a>
+    <a href="https://www.helpingpdf.com/#tools-section" class="tool-card">
+      <span class="tc-icon">✒️</span>
+      <strong>PDF Signer</strong>
+      <p>Add a digital signature to any PDF. Draw, type, or upload your signature. Coming soon.</p>
+      <span class="tc-link">Coming soon →</span>
+    </a>
+  </div>
+</div>
+
+<!-- BLOG SECTION -->
+<div>
+  <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:6px;">📖 PDF Filling Guides &amp; Tips</h2>
+  <p style="color:var(--text2);font-size:0.88rem;margin-bottom:20px;">Expert guides to help you fill, edit, and manage PDF documents like a professional.</p>
+
+  <div class="blog-article">
+    <div class="blog-meta">
+      <span class="blog-tag">How-To Guide</span>
+      <span class="blog-time">• 6 Min Read • Helping PDF Team • June 2026</span>
+    </div>
+    <h3>How to Fill a PDF Form Online Free – Without Adobe Acrobat</h3>
+    <p>You receive an important PDF — a job application, bank form, rental agreement — and you need to fill and return it fast. You do not have Adobe Acrobat. You do not want to print, write by hand, and scan. And you certainly do not want to create an account on an unknown website just to type a few words into a form.</p>
+    <p>That frustration is exactly why we built the Helping PDF Filler. Click anywhere on your PDF, type your information, choose your font and color, and download the filled document in seconds — completely free, no sign-up, and nothing leaves your own device.</p>
+
+    <h4>The Problem with Most Free PDF Fillers</h4>
+    <p>Most so-called free tools hide serious problems. You upload your private document, wait for processing on their servers, then face a paywall or forced sign-up before you can download your own file back. Worse, sensitive documents — tax records, visa forms, medical papers — sit on a stranger's server with no real deletion guarantee.</p>
+    <ul>
+      <li><strong>Server-side risks:</strong> Your private data travels to external servers you cannot control.</li>
+      <li><strong>Signup traps:</strong> Many tools block download until you create a paid account.</li>
+      <li><strong>Watermarks:</strong> Free tiers stamp your document, making it unusable for official submission.</li>
+      <li><strong>Page limits:</strong> Some tools only allow 1–2 pages on the free plan.</li>
+    </ul>
+
+    <h4>The Helping PDF Approach: 100% Local, 100% Free</h4>
+    <p>Our filler uses modern browser technology — PDF.js and PDF-lib — to render and modify your document entirely on your own device. No upload happens. No account is needed. No watermark is added. No page limit exists. Whether your form has 1 page or 30, fill every field at no cost.</p>
+
+    <h4>What Can You Fill With This Tool?</h4>
+    <ul>
+      <li>Job application forms and CV submission sheets</li>
+      <li>Bank account opening and KYC documents</li>
+      <li>Visa and immigration application forms</li>
+      <li>Rental agreements and lease contracts</li>
+      <li>School and university admission forms</li>
+      <li>Insurance claim and medical record forms</li>
+      <li>Government tax and declaration documents</li>
+    </ul>
+
+    <h4>Pro Tips for Filling PDFs Professionally</h4>
+    <p><strong>Match font size to the form field.</strong> If filling a small checkbox area, use 10px or 12px so text fits naturally inside the field boundary.</p>
+    <p><strong>Use black text for official documents.</strong> Most legal and government forms expect black ink. Keep color on #000000 unless specified otherwise.</p>
+    <p><strong>Drag text boxes to reposition.</strong> If your text lands slightly off-target, drag it to the exact spot — no need to delete and retype.</p>
+    <p><strong>Review every page before downloading.</strong> Use Prev and Next buttons to check all pages. Once downloaded, text is permanently embedded.</p>
+    <p>Also try our <a href="https://www.helpingpdf.com/compressor.html" style="color:var(--primary);font-weight:600;">free PDF Compressor tool</a> if you need to reduce file size after filling your document.</p>
+  </div>
+
+  <div class="blog-cards-row">
+    <div class="blog-card-sm">
+      <span class="btag">Privacy &amp; Security</span>
+      <h4>Why Browser-Based PDF Tools Are Safer Than Cloud Converters</h4>
+      <p>Understand the difference between client-side and server-side processing, and why local tools keep your documents truly private.</p>
+    </div>
+    <div class="blog-card-sm">
+      <span class="btag">Productivity</span>
+      <h4>5 Types of PDF Forms You Can Fill Instantly Without Printing</h4>
+      <p>From visa applications to rental agreements — a practical guide to going fully paperless with your important document workflows.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">📄 Helping PDF</span>
+  <p>Your safe, secure, and free solution for PDF tools. All processing happens locally in your browser — your documents are always private.</p>
+  <div class="footer-links">
+    <a href="https://www.helpingpdf.com/">Home</a>
+    <a href="https://www.helpingpdf.com/compressor.html">PDF Compressor</a>
+    <a href="https://www.helpingpdf.com/filler.html">PDF Filler</a>
+    <a href="https://www.helpingpdf.com/about.html">About Us</a>
+    <a href="https://www.helpingpdf.com/contact.html">Contact</a>
+    <a href="https://www.helpingpdf.com/privacy.html">Privacy Policy</a>
+    <a href="https://www.helpingpdf.com/terms.html">Terms &amp; Conditions</a>
+  </div>
+  <p style="margin-top:12px;">© 2026 Helping PDF. All rights reserved.</p>
+</footer>
+
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  // ── DARK/LIGHT MODE ──
+  let isDark = false;
+  document.getElementById('theme-btn').addEventListener('click', () => {
+    isDark = !isDark;
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
+    document.getElementById('theme-icon').textContent  = isDark ? '☀️' : '🌙';
+    document.getElementById('theme-label').textContent = isDark ? 'Light' : 'Dark';
+  });
+
+  // ── STATE ──
+  let pdfDoc     = null;
+  let totalPages = 1;
+  let curPage    = 1;
+  let scale      = 1.5;
+  let origBytes  = null;
+  let boxes      = {};
+  let isBold     = false;
+  let isItalic   = false;
+  let curFS      = 14;
+  let curColor   = '#000000';
+
+  // ── DOM REFS ──
+  const uploadZone = document.getElementById('upload-zone');
+  const fileInput  = document.getElementById('file-input');
+  const canvasWrap = document.getElementById('canvas-wrapper');
+  const canvas     = document.getElementById('pdf-canvas');
+  const ctx        = canvas.getContext('2d');
+  const toolbar    = document.getElementById('toolbar');
+  const hintBar    = document.getElementById('hint-bar');
+  const pageNav    = document.getElementById('page-nav');
+  const pageInfo   = document.getElementById('page-info');
+  const btnPrev    = document.getElementById('btn-prev');
+  const btnNext    = document.getElementById('btn-next');
+  const btnDL      = document.getElementById('btn-download');
+  const btnNew     = document.getElementById('btn-new');
+  const btnBoldEl  = document.getElementById('btn-bold');
+  const btnItalEl  = document.getElementById('btn-italic');
+  const btnUndo    = document.getElementById('btn-undo');
+  const btnClear   = document.getElementById('btn-clear');
+  const fsSel      = document.getElementById('font-size-select');
+  const colorPick  = document.getElementById('color-picker');
+
+  // ── UPLOAD ──
+  document.getElementById('btn-browse').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+  uploadZone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    const f = e.dataTransfer.files[0];
+    if (f && f.type === 'application/pdf') loadFile(f);
+    else alert('Please drop a valid PDF file.');
+  });
+
+  async function loadFile(file) {
+    origBytes  = await file.arrayBuffer();
+    const copy = origBytes.slice(0);
+    pdfDoc     = await pdfjsLib.getDocument({ data: copy }).promise;
+    totalPages = pdfDoc.numPages;
+    boxes      = {};
+    curPage    = 1;
+    uploadZone.style.display = 'none';
+    toolbar.classList.add('visible');
+    canvasWrap.classList.add('visible');
+    hintBar.style.display = 'block';
+    if (totalPages > 1) pageNav.classList.add('visible');
+    btnDL.disabled = false;
+    await renderPage(curPage);
+  }
+
+  async function renderPage(num) {
+    const page     = await pdfDoc.getPage(num);
+    const viewport = page.getViewport({ scale });
+    canvas.width   = viewport.width;
+    canvas.height  = viewport.height;
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    pageInfo.textContent = `Page ${num} of ${totalPages}`;
+    btnPrev.disabled = num <= 1;
+    btnNext.disabled = num >= totalPages;
+    showBoxes(num);
+  }
+
+  function showBoxes(num) {
+    document.querySelectorAll('.pdf-textbox, .box-delete').forEach(el => el.remove());
+    if (!boxes[num]) return;
+    boxes[num].forEach(b => {
+      canvasWrap.appendChild(b.el);
+      canvasWrap.appendChild(b.del);
+      autoResize(b.el);
+      positionDel(b);
+    });
+  }
+
+  // ── CLICK → NEW BOX ──
+  canvas.addEventListener('click', e => {
+    const r = canvas.getBoundingClientRect();
+    addBox(
+      e.clientX - r.left + canvasWrap.scrollLeft,
+      e.clientY - r.top  + canvasWrap.scrollTop
+    );
+  });
+
+  function addBox(x, y) {
+    const el = document.createElement('textarea');
+    el.className   = 'pdf-textbox';
+    el.rows        = 1;
+    el.spellcheck  = false;
+    el.style.left      = x + 'px';
+    el.style.top       = y + 'px';
+    el.style.fontSize  = curFS + 'px';
+    el.style.color     = curColor;
+    el.style.fontWeight  = isBold   ? 'bold'   : 'normal';
+    el.style.fontStyle   = isItalic ? 'italic' : 'normal';
+    el.style.width     = '120px';
+    el.style.height    = (curFS * 1.6) + 'px';
+
+    const del = document.createElement('button');
+    del.className   = 'box-delete';
+    del.textContent = '✕';
+    del.title       = 'Delete this text box';
+
+    const entry = { el, del, x, y, fs: curFS, color: curColor, bold: isBold, italic: isItalic };
+
+    el.addEventListener('input',  () => { autoResize(el); positionDel(entry); });
+    el.addEventListener('focus',  () => selectBox(el, del));
+    el.addEventListener('mousedown', e => e.stopPropagation());
+    el.addEventListener('keydown', e => { if (e.key === 'Escape') el.blur(); });
+
+    del.addEventListener('mousedown', e => { e.stopPropagation(); removeBox(entry); });
+
+    makeDraggable(entry);
+
+    canvasWrap.appendChild(el);
+    canvasWrap.appendChild(del);
+    el.focus();
+
+    if (!boxes[curPage]) boxes[curPage] = [];
+    boxes[curPage].push(entry);
+    positionDel(entry);
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = (el.scrollHeight + 2) + 'px';
+    el.style.width  = 'auto';
+    el.style.width  = Math.max(60, el.scrollWidth + 10) + 'px';
+  }
+
+  function selectBox(el, del) {
+    document.querySelectorAll('.pdf-textbox').forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.box-delete').forEach(d => d.style.display = 'none');
+    el.classList.add('selected');
+    del.style.display = 'flex';
+  }
+
+  function positionDel(entry) {
+    const el  = entry.el;
+    const del = entry.del;
+    del.style.position = 'absolute';
+    del.style.left = (parseFloat(el.style.left) + el.offsetWidth - 9)  + 'px';
+    del.style.top  = (parseFloat(el.style.top)  - 9) + 'px';
+  }
+
+  function removeBox(entry) {
+    entry.el.remove();
+    entry.del.remove();
+    if (boxes[curPage]) boxes[curPage] = boxes[curPage].filter(b => b !== entry);
+  }
+
+  function makeDraggable(entry) {
+    const el = entry.el;
+    let dragging = false, sx, sy, ox, oy;
+    el.addEventListener('mousedown', e => {
+      if (e.target !== el) return;
+      dragging = true;
+      sx = e.clientX; sy = e.clientY;
+      ox = parseFloat(el.style.left); oy = parseFloat(el.style.top);
+      el.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      entry.x = el.style.left = ox + (e.clientX - sx) + 'px';
+      entry.y = el.style.top  = oy + (e.clientY - sy) + 'px';
+      positionDel(entry);
+    });
+    document.addEventListener('mouseup', () => {
+      if (dragging) { dragging = false; el.style.cursor = 'text'; }
+    });
+  }
+
+  // ── TOOLBAR ──
+  fsSel.addEventListener('change', () => { curFS = parseInt(fsSel.value); });
+  colorPick.addEventListener('input', () => { curColor = colorPick.value; });
+
+  btnBoldEl.addEventListener('click', () => {
+    isBold = !isBold;
+    btnBoldEl.classList.toggle('active', isBold);
+    btnBoldEl.setAttribute('aria-pressed', isBold);
+  });
+  btnItalEl.addEventListener('click', () => {
+    isItalic = !isItalic;
+    btnItalEl.classList.toggle('active', isItalic);
+    btnItalEl.setAttribute('aria-pressed', isItalic);
+  });
+
+  btnUndo.addEventListener('click', () => {
+    const pg = boxes[curPage];
+    if (pg && pg.length) {
+      const last = pg.pop();
+      last.el.remove(); last.del.remove();
+    }
+  });
+
+  btnClear.addEventListener('click', () => {
+    if (!confirm('Remove all text boxes on this page?')) return;
+    (boxes[curPage] || []).forEach(b => { b.el.remove(); b.del.remove(); });
+    boxes[curPage] = [];
+  });
+
+  btnPrev.addEventListener('click', async () => { if (curPage > 1) { curPage--; await renderPage(curPage); } });
+  btnNext.addEventListener('click', async () => { if (curPage < totalPages) { curPage++; await renderPage(curPage); } });
+
+  btnNew.addEventListener('click', () => {
+    if (!confirm('Open a new file? Unsaved changes will be lost.')) return;
+    document.querySelectorAll('.pdf-textbox, .box-delete').forEach(el => el.remove());
+    pdfDoc = null; origBytes = null; boxes = {};
+    uploadZone.style.display = '';
+    toolbar.classList.remove('visible');
+    canvasWrap.classList.remove('visible');
+    hintBar.style.display = 'none';
+    pageNav.classList.remove('visible');
+    btnDL.disabled = true;
+    fileInput.value = '';
+  });
+
+  // ── DOWNLOAD ──
+  btnDL.addEventListener('click', async () => {
+    if (!origBytes) return;
+    btnDL.innerHTML  = '⏳ Generating…';
+    btnDL.disabled   = true;
+
+    try {
+      const { PDFDocument, rgb, StandardFonts } = PDFLib;
+      const doc = await PDFDocument.load(origBytes);
+      const fonts = {
+        nn: await doc.embedFont(StandardFonts.Helvetica),
+        bn: await doc.embedFont(StandardFonts.HelveticaBold),
+        ni: await doc.embedFont(StandardFonts.HelveticaOblique),
+        bi: await doc.embedFont(StandardFonts.HelveticaBoldOblique),
+      };
+
+      const pages = doc.getPages();
+
+      for (const [pgStr, pgBoxes] of Object.entries(boxes)) {
+        const pgNum   = parseInt(pgStr);
+        const pdfPage = pages[pgNum - 1];
+        if (!pdfPage) continue;
+
+        const { width: pdfW, height: pdfH } = pdfPage.getSize();
+        const renderedPg = await pdfDoc.getPage(pgNum);
+        const vp = renderedPg.getViewport({ scale });
+        const sx = pdfW / vp.width;
+        const sy = pdfH / vp.height;
+
+        for (const box of pgBoxes) {
+          const text = box.el.value.trim();
+          if (!text) continue;
+
+          const fKey = (box.bold ? 'b' : 'n') + (box.italic ? 'i' : 'n');
+          const font = fonts[fKey];
+          const fs   = box.fs * Math.min(sx, sy);
+
+          const hex = box.color.replace('#', '');
+          const r = parseInt(hex.substring(0,2),16) / 255;
+          const g = parseInt(hex.substring(2,4),16) / 255;
+          const b = parseInt(hex.substring(4,6),16) / 255;
+
+          const lines = box.el.value.split('\n');
+          lines.forEach((line, i) => {
+            if (!line.trim()) return;
+            pdfPage.drawText(line, {
+              x: box.x * sx,
+              y: pdfH - (box.y * sy) - fs - (i * fs * 1.4),
+              size: fs,
+              font,
+              color: rgb(r, g, b),
+              maxWidth: pdfW - (box.x * sx) - 10,
+            });
+          });
+        }
+      }
+
+      const out  = await doc.save();
+      const blob = new Blob([out], { type: 'application/pdf' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href = url; a.download = 'filled-helpingpdf.pdf'; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+
+    } catch (err) {
+      console.error(err);
+      alert('Error generating PDF. Please try again.');
+    }
+
+    btnDL.innerHTML = '⬇ <span class="dl-label">Download PDF</span>';
+    btnDL.disabled  = false;
+  });
+</script>
+</body>
+</html>
