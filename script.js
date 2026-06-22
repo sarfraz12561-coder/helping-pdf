@@ -86,7 +86,7 @@ function renderToolGrid() {
         alert(`${currentTool.title} is coming soon! We are working hard to launch it.`);
         return;
     }
-    // اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو سیدھا filler.html پر بھیجو
+    // اگر ​فلر پی ڈی ایف کا کارڈ کلک ہو تو سیدھا filler.html پر بھیجو
             if (toolId === 'filler-pdf' || toolId === 'filler') {
                 window.location.href = 'filler.html';
                 return;
