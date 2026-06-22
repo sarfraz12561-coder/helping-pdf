@@ -86,6 +86,10 @@ function renderToolGrid() {
         alert(`${currentTool.title} is coming soon! We are working hard to launch it.`);
         return;
     }
+    if (currentTool && currentTool.url) {
+  window.location.href = currentTool.url;
+  return;
+    }
             
             
             // اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو سیدھا compressor.html پر بھیجو
