@@ -87,7 +87,7 @@ function renderToolGrid() {
         return;
     }
     // اگر ​فلر پی ڈی ایف کا کارڈ کلک ہو تو سیدھا filler.html پر بھیجو
-            if (toolId === 'filler-pdf' || toolId === 'filler') {
+            if (toolId === 'filler-pdf' || toolId === 'filler' || toolId === 'form-filler') {
                 window.location.href = 'filler.html';
                 return;
     }
