@@ -71,9 +71,10 @@ const CONFIG = {
         },
         {
             active: true,
-            isComingSoon: true,
+            isComingSoon: false,
             id: "signer",
             title: "PDF Signer",
+            ulr: "signer.html",
             description: "Add a secure digital signature – draw, type, or upload an image. Legally binding and privacy‑friendly.",
             metaDescription: "Free PDF signer – add digital signatures securely. Draw, type, or upload signature. No watermark, local processing. Legally binding.",
             tags: [
