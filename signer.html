@@ -4,40 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign PDF Online Free – Add Digital Signature to PDF | Helping PDF</title>
-  <meta name="description" content="Sign PDF online free. Draw your signature with mouse or touch, type your name in beautiful fonts, upload a signature image, or add company stamp. No account, no watermark, 100% private – your file never leaves your device." />
-  <meta name="keywords" content="sign pdf online free, add signature to pdf, pdf signer free, digital signature pdf, draw signature on pdf, esign pdf free, sign pdf no account, sign pdf no watermark, pdf signature tool, add initials to pdf, company stamp pdf" />
+  <meta name="description" content="Sign PDF online free. Draw, type, or upload your signature and place it anywhere on your PDF. Add initials or company stamp too. No account, no watermark. 100% private – your file never leaves your device." />
+  <meta name="keywords" content="sign pdf online free, add signature to pdf, pdf signer free, digital signature pdf, draw signature on pdf, esign pdf free, sign pdf no account, sign pdf no watermark, add initials to pdf, company stamp pdf" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Helping PDF" />
   <link rel="canonical" href="https://www.helpingpdf.com/signer.html" />
   <meta property="og:title" content="Sign PDF Online Free – Draw, Type or Upload Signature | Helping PDF" />
-  <meta property="og:description" content="Add your signature to any PDF instantly. Draw with mouse or touch, type your name, add initials, or upload a company stamp. Free, private, no account needed." />
+  <meta property="og:description" content="Add your signature, initials or company stamp to any PDF instantly. Free, private, no account needed." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.helpingpdf.com/signer.html" />
   <meta property="og:site_name" content="Helping PDF" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sign PDF Online Free | Helping PDF" />
-  <meta name="twitter:description" content="Draw, type, or upload your signature and place it on any PDF. Free, private, no watermark." />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "PDF Signer – Helping PDF",
     "url": "https://www.helpingpdf.com/signer.html",
-    "description": "Sign PDF online free. Draw, type, add initials, upload signature or company stamp. Place on PDF and download instantly. No account required.",
+    "description": "Sign PDF online free. Draw, type, or upload your signature. Add initials or company stamp. No account required.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "featureList": "Draw signature, Type signature, Upload signature image, Add initials, Company stamp, Multi-page PDF, No watermark, No account, 100% private"
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&family=Caveat:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
- 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --primary: #2563eb; --primary-dark: #1d4ed8; --primary-light: #eff6ff; --primary-border: #bfdbfe;
+      --primary: #2563eb; --primary-light: #eff6ff; --primary-border: #bfdbfe;
       --success: #16a34a; --success-light: #f0fdf4; --success-border: #bbf7d0;
       --purple: #7c3aed; --purple-dark: #6d28d9; --purple-light: #f5f3ff; --purple-border: #ddd6fe;
       --bg: #f1f5f9; --surface: #ffffff; --surface2: #f8fafc;
@@ -64,43 +59,47 @@
       position: sticky; top: 0; z-index: 200; box-shadow: var(--shadow);
       transition: background 0.25s, border-color 0.25s; gap: 10px;
     }
-    .logo { font-size: 1rem; font-weight: 800; color: var(--purple); text-decoration: none; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
-    .header-nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
-    .nav-link { font-size: 0.8rem; color: var(--text2); text-decoration: none; padding: 5px 10px; border-radius: 6px; font-weight: 500; transition: all 0.2s; white-space: nowrap; }
+    .logo { font-size: 1.05rem; font-weight: 800; color: var(--purple); text-decoration: none; white-space: nowrap; }
+    .header-nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-size: 0.8rem; color: var(--text2); text-decoration: none;
+      padding: 5px 10px; border-radius: 7px; font-weight: 600;
+      transition: all 0.2s; white-space: nowrap;
+    }
     .nav-link:hover { color: var(--purple); background: var(--purple-light); }
     .nav-link.active { color: var(--purple); font-weight: 700; }
     .theme-toggle {
-      background: var(--surface2); border: 1px solid var(--border); border-radius: 20px;
-      padding: 5px 11px; cursor: pointer; font-size: 0.75rem; font-weight: 600;
-      color: var(--text2); display: flex; align-items: center; gap: 4px;
-      transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 11px; cursor: pointer;
+      font-size: 0.75rem; font-weight: 600; color: var(--text2);
+      display: flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;
     }
     .theme-toggle:hover { border-color: var(--purple); color: var(--purple); }
  
-    /* ── FLOATING BACK BUTTON ── */
-    .float-home {
-      position: fixed; bottom: 24px; right: 24px; z-index: 500;
-      background: var(--purple); color: white; border: none;
-      border-radius: 50px; padding: 12px 20px; font-size: 0.82rem;
-      font-weight: 700; cursor: pointer; text-decoration: none;
+    /* ── FLOATING HOME BUTTON ── */
+    .floating-home {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: var(--purple); color: white;
+      border: none; border-radius: 50px;
+      padding: 12px 18px; font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; box-shadow: 0 4px 16px rgba(124,58,237,0.45);
       display: flex; align-items: center; gap: 7px;
-      box-shadow: 0 4px 16px rgba(124,58,237,0.45);
-      transition: all 0.2s; white-space: nowrap;
+      text-decoration: none; transition: all 0.2s;
     }
-    .float-home:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,237,0.5); }
-    .float-home span { font-size: 1rem; }
+    .floating-home:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,237,0.55); }
+    .floating-home span { font-size: 1rem; }
  
     /* ── HERO ── */
-    .hero { text-align: center; padding: 48px 16px 32px; max-width: 720px; margin: 0 auto; }
+    .hero { text-align: center; padding: 48px 20px 32px; max-width: 720px; margin: 0 auto; }
     .hero-eyebrow { display: inline-block; background: var(--purple-light); color: var(--purple); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; border: 1px solid var(--purple-border); margin-bottom: 14px; }
     .hero h1 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
     .hero h1 span { color: var(--purple); }
-    .hero p { color: var(--text2); font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .hero p { color: var(--text2); font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px; }
     .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
-    .badge { background: var(--purple-light); color: var(--purple); font-size: 0.73rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--purple-border); }
+    .badge { background: var(--purple-light); color: var(--purple); font-size: 0.73rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; border: 1px solid var(--purple-border); }
     .badge.green { background: var(--success-light); color: var(--success); border-color: var(--success-border); }
  
-    /* ── CONTAINER ── */
+    /* ── CONTAINER / CARD ── */
     .container { max-width: 980px; margin: 0 auto; padding: 0 14px 100px; }
     .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; transition: background 0.25s, border-color 0.25s; }
  
@@ -108,93 +107,94 @@
     #upload-zone { border: 2.5px dashed var(--purple-border); border-radius: var(--radius); background: var(--purple-light); padding: 56px 20px; text-align: center; cursor: pointer; transition: all 0.2s; }
     #upload-zone:hover, #upload-zone.drag-over { border-color: var(--purple); }
     [data-theme="dark"] #upload-zone { background: #2d1f5e; border-color: #7c3aed; }
-    .upload-icon { font-size: 3rem; display: block; margin-bottom: 12px; }
-    #upload-zone h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 7px; color: var(--text); }
-    #upload-zone p { color: var(--text2); font-size: 0.86rem; margin-bottom: 20px; }
+    .upload-icon { font-size: 3.2rem; display: block; margin-bottom: 12px; }
+    #upload-zone h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+    #upload-zone p { color: var(--text2); font-size: 0.85rem; margin-bottom: 20px; }
     .btn-browse { background: var(--purple); color: white; border: none; padding: 11px 30px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: background 0.2s; box-shadow: 0 2px 8px rgba(124,58,237,0.3); }
     .btn-browse:hover { background: var(--purple-dark); }
  
     /* ── TOOLBAR ── */
-    #toolbar { display: none; background: var(--toolbar-bg); padding: 9px 12px; gap: 5px; align-items: center; flex-wrap: wrap; }
+    #toolbar { display: none; background: var(--toolbar-bg); padding: 10px 12px; gap: 5px; align-items: center; flex-wrap: wrap; }
     #toolbar.visible { display: flex; }
     .tlabel { color: var(--toolbar-muted); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-    .tsep { width: 1px; height: 24px; background: var(--toolbar-border); margin: 0 2px; }
-    .tool-btn { background: var(--toolbar-btn); color: var(--toolbar-text); border: 1px solid var(--toolbar-border); padding: 6px 11px; border-radius: 7px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .tsep { width: 1px; height: 24px; background: var(--toolbar-border); margin: 0 2px; flex-shrink: 0; }
+    .tool-btn { background: var(--toolbar-btn); color: var(--toolbar-text); border: 1px solid var(--toolbar-border); padding: 6px 12px; border-radius: 7px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
     .tool-btn:hover, .tool-btn.active { background: var(--purple); border-color: var(--purple); color: white; }
     .btn-dl { margin-left: auto; background: var(--success); color: white; border: none; padding: 7px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 8px rgba(22,163,74,0.3); transition: background 0.2s; white-space: nowrap; }
     .btn-dl:hover { background: #15803d; }
     .btn-dl:disabled { background: #64748b; box-shadow: none; cursor: not-allowed; }
-    .btn-newfile { background: var(--toolbar-btn); color: var(--toolbar-text); border: 1px solid var(--toolbar-border); padding: 6px 11px; border-radius: 7px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .btn-newfile { background: var(--toolbar-btn); color: var(--toolbar-text); border: 1px solid var(--toolbar-border); padding: 6px 12px; border-radius: 7px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
     .btn-newfile:hover { background: #64748b; }
  
     /* ── HINT ── */
-    #hint-bar { background: #faf5ff; border-bottom: 1px solid #e9d5ff; padding: 8px 14px; font-size: 0.78rem; color: #6d28d9; text-align: center; display: none; }
+    #hint-bar { background: #faf5ff; border-bottom: 1px solid #e9d5ff; padding: 8px 16px; font-size: 0.8rem; color: #6d28d9; text-align: center; display: none; line-height: 1.5; }
     [data-theme="dark"] #hint-bar { background: #2d1f5e; color: #c4b5fd; border-color: #5b3e9e; }
  
     /* ── PAGE NAV ── */
-    #page-nav { background: #0f172a; padding: 8px 14px; display: none; align-items: center; justify-content: center; gap: 12px; color: #e2e8f0; font-size: 0.82rem; }
+    #page-nav { background: #0f172a; padding: 8px 14px; display: none; align-items: center; justify-content: center; gap: 14px; color: #e2e8f0; font-size: 0.82rem; }
     #page-nav.visible { display: flex; }
     .pg-btn { background: #334155; color: #e2e8f0; border: 1px solid #475569; padding: 5px 14px; border-radius: 7px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: background 0.15s; }
     .pg-btn:hover:not(:disabled) { background: var(--purple); border-color: var(--purple); }
     .pg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
  
     /* ── CANVAS ── */
-    #canvas-wrapper { display: none; position: relative; overflow: auto; background: #475569; min-height: 400px; max-height: 70vh; }
+    #canvas-wrapper { display: none; position: relative; overflow: auto; background: #475569; min-height: 420px; max-height: 70vh; -webkit-overflow-scrolling: touch; }
     #canvas-wrapper.visible { display: block; }
-    #pdf-canvas { display: block; margin: 16px auto; box-shadow: var(--shadow-lg); cursor: crosshair; touch-action: none; }
+    #pdf-canvas { display: block; margin: 16px auto; box-shadow: var(--shadow-lg); cursor: crosshair; max-width: 100%; }
  
     /* ── SIG PLACER ── */
-    .sig-placer { position: absolute; cursor: move; z-index: 20; border: 2px dashed #7c3aed; border-radius: 4px; background: rgba(124,58,237,0.04); user-select: none; }
-    .sig-placer img { width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; }
-    .sig-placer .del-sig { position: absolute; top: -10px; right: -10px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 0.6rem; cursor: pointer; font-weight: 800; display: flex; align-items: center; justify-content: center; z-index: 30; }
-    .sig-placer .resize-h { position: absolute; bottom: -6px; right: -6px; width: 14px; height: 14px; background: var(--purple); border-radius: 3px; cursor: se-resize; }
+    .sig-placer { position: absolute; cursor: move; z-index: 20; border: 2px dashed #7c3aed; border-radius: 4px; background: rgba(124,58,237,0.04); min-width: 60px; min-height: 30px; }
+    .sig-placer img { width: 100%; height: 100%; display: block; pointer-events: none; object-fit: contain; }
+    .sig-placer .del-sig { position: absolute; top: -10px; right: -10px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 0.6rem; cursor: pointer; font-weight: 800; display: flex; align-items: center; justify-content: center; z-index: 5; line-height: 1; }
+    .sig-placer .resize-handle { position: absolute; bottom: -7px; right: -7px; width: 16px; height: 16px; background: var(--purple); border-radius: 3px; cursor: se-resize; }
  
-    /* ── SIGNATURE MODAL ── */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 400; display: flex; align-items: center; justify-content: center; padding: 14px; }
+    /* ── MODAL ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 12px; }
     .modal-overlay.hidden { display: none; }
     .modal { background: var(--surface); border-radius: 16px; padding: 22px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.35); max-height: 90vh; overflow-y: auto; }
-    .modal-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 16px; color: var(--text); }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .modal-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+    .modal-close { background: var(--surface2); border: 1px solid var(--border); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1rem; color: var(--text2); display: flex; align-items: center; justify-content: center; }
  
-    /* Name row */
-    .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-    .name-row label { font-size: 0.75rem; font-weight: 600; color: var(--text2); display: block; margin-bottom: 4px; }
-    .name-row input { width: 100%; border: 1.5px solid var(--border); border-radius: 7px; padding: 8px 10px; font-size: 0.9rem; color: var(--text); background: var(--surface); }
-    .name-row input:focus { outline: none; border-color: var(--purple); }
- 
-    /* Tabs */
-    .tab-btns { display: flex; gap: 0; margin-bottom: 16px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .tab-btn { flex: 1; background: var(--surface2); border: none; padding: 9px 4px; font-size: 0.75rem; font-weight: 600; cursor: pointer; color: var(--text2); transition: all 0.15s; border-right: 1px solid var(--border); }
-    .tab-btn:last-child { border-right: none; }
-    .tab-btn.active { background: var(--purple); color: white; }
+    /* TABS */
+    .tab-btns { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 2px solid var(--border); overflow-x: auto; }
+    .tab-btn { background: none; border: none; padding: 8px 14px; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--text2); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; white-space: nowrap; }
+    .tab-btn.active { color: var(--purple); border-bottom-color: var(--purple); }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
+ 
+    /* Name inputs */
+    .name-row { display: flex; gap: 10px; margin-bottom: 14px; }
+    .name-row input { flex: 1; border: 2px solid var(--border); border-radius: 8px; padding: 9px 12px; font-size: 0.9rem; color: var(--text); background: var(--surface); min-width: 0; }
+    .name-row input:focus { outline: none; border-color: var(--purple); }
+    .name-row label { font-size: 0.75rem; font-weight: 600; color: var(--text2); display: block; margin-bottom: 4px; }
  
     /* Draw */
     #draw-canvas { border: 2px solid var(--border); border-radius: 8px; background: white; cursor: crosshair; display: block; width: 100%; height: 150px; touch-action: none; }
     .draw-controls { display: flex; gap: 7px; margin-top: 9px; align-items: center; flex-wrap: wrap; }
     .color-dot { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: border-color 0.2s; flex-shrink: 0; }
-    .color-dot.active { border-color: var(--purple); }
+    .color-dot.selected { border-color: var(--purple); }
     .stroke-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 9px; cursor: pointer; font-size: 0.75rem; font-weight: 600; color: var(--text2); transition: all 0.2s; }
     .stroke-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
-    .btn-clr { background: #fee2e2; color: #dc2626; border: none; border-radius: 6px; padding: 5px 10px; font-size: 0.75rem; font-weight: 700; cursor: pointer; margin-left: auto; }
+    .btn-clear-draw { background: #fee2e2; color: #dc2626; border: none; border-radius: 6px; padding: 5px 11px; font-size: 0.75rem; font-weight: 700; cursor: pointer; margin-left: auto; }
  
     /* Type / Initials */
-    .type-input { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 10px; font-size: 0.95rem; color: var(--text); background: var(--surface); margin-bottom: 12px; }
+    .type-input { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 11px 12px; font-size: 0.95rem; color: var(--text); background: var(--surface); margin-bottom: 12px; }
     .type-input:focus { outline: none; border-color: var(--purple); }
-    .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .font-opt { border: 2px solid var(--border); border-radius: 8px; padding: 10px 8px; cursor: pointer; text-align: center; font-size: 1.05rem; transition: all 0.2s; background: var(--surface2); color: var(--text); }
+    .font-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .font-opt { border: 2px solid var(--border); border-radius: 8px; padding: 10px 8px; cursor: pointer; text-align: center; transition: all 0.2s; background: var(--surface2); color: var(--text); font-size: 1.1rem; }
     .font-opt:hover, .font-opt.active { border-color: var(--purple); background: var(--purple-light); }
-    .f1 { font-family: 'Dancing Script', cursive; }
-    .f2 { font-family: 'Great Vibes', cursive; }
-    .f3 { font-family: 'Caveat', cursive; }
-    .f4 { font-family: Georgia, serif; font-style: italic; }
+    .font-opt.f1 { font-family: 'Dancing Script', cursive; }
+    .font-opt.f2 { font-family: 'Pacifico', cursive; font-size: 0.9rem; }
+    .font-opt.f3 { font-family: 'Caveat', cursive; }
+    .font-opt.f4 { font-family: 'Great Vibes', cursive; }
  
-    /* Upload / Stamp */
+    /* Upload / Company Stamp */
     .upload-sig-zone { border: 2px dashed var(--purple-border); border-radius: 8px; padding: 28px 16px; text-align: center; cursor: pointer; background: var(--purple-light); transition: all 0.2s; }
     .upload-sig-zone:hover { border-color: var(--purple); }
-    .upload-sig-zone p { color: var(--text2); font-size: 0.82rem; margin-top: 7px; }
-    #sig-img-preview { margin-top: 10px; text-align: center; display: none; }
-    #sig-img-preview img { max-height: 90px; border: 1px solid var(--border); border-radius: 8px; padding: 4px; }
+    .upload-sig-zone p { color: var(--text2); font-size: 0.82rem; margin-top: 8px; line-height: 1.5; }
+    #sig-img-preview, #stamp-img-preview { margin-top: 10px; text-align: center; display: none; }
+    #sig-img-preview img, #stamp-img-preview img { max-height: 80px; border: 1px solid var(--border); border-radius: 8px; padding: 4px; }
  
     /* Modal footer */
     .modal-footer { display: flex; gap: 10px; margin-top: 18px; justify-content: flex-end; }
@@ -202,63 +202,61 @@
     .btn-apply { background: var(--purple); color: white; border: none; padding: 9px 22px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
     .btn-apply:hover { background: var(--purple-dark); }
  
-    /* ── INFO / SEO ── */
+    /* ── INFO SECTIONS ── */
     .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); transition: background 0.25s, border-color 0.25s; }
-    .info-card h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 14px; color: var(--text); }
-    .info-card h3 { font-size: 0.95rem; font-weight: 700; margin: 18px 0 7px; color: var(--text); }
-    .info-card p { color: var(--text2); font-size: 0.88rem; line-height: 1.75; margin-bottom: 9px; }
+    .info-card h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: 14px; color: var(--text); }
+    .info-card h3 { font-size: 0.98rem; font-weight: 700; margin: 18px 0 8px; color: var(--text); }
+    .info-card p { color: var(--text2); font-size: 0.88rem; line-height: 1.75; margin-bottom: 10px; }
     .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 14px 0; }
-    .feat-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+    .feat-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; transition: background 0.25s; }
     .feat-item .fi { font-size: 1.3rem; display: block; margin-bottom: 7px; }
     .feat-item strong { font-size: 0.85rem; display: block; margin-bottom: 3px; color: var(--text); }
     .feat-item p { font-size: 0.78rem; color: var(--text2); margin: 0; line-height: 1.5; }
     .steps-ol { list-style: none; counter-reset: st; padding: 0; }
     .steps-ol li { counter-increment: st; display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-    .steps-ol li::before { content: counter(st); background: var(--purple); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .steps-ol li::before { content: counter(st); background: var(--purple); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
     .steps-ol li p { margin: 0; color: var(--text2); font-size: 0.88rem; line-height: 1.6; }
-    .check-list { list-style: none; padding: 0; margin: 9px 0; }
+    .steps-ol li strong { color: var(--text); }
+    .check-list { list-style: none; padding: 0; margin: 8px 0; }
     .check-list li { color: var(--text2); font-size: 0.88rem; padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
     .check-list li:last-child { border: none; }
     .check-list li::before { content: "✓"; color: var(--success); font-weight: 700; flex-shrink: 0; }
-    .seo-kw { color: var(--text2); font-size: 0.76rem; font-style: italic; line-height: 1.7; margin-top: 10px; }
  
-    /* ── OTHER TOOLS ── */
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 14px 0; }
+    /* Other tools */
+    .other-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 14px 0; }
     .tool-link { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s; }
     .tool-link:hover { border-color: var(--purple); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
     .tool-link .tl-icon { font-size: 1.5rem; display: block; margin-bottom: 7px; }
-    .tool-link strong { font-size: 0.88rem; display: block; color: var(--text); margin-bottom: 3px; }
+    .tool-link strong { font-size: 0.88rem; display: block; color: var(--text); margin-bottom: 4px; }
     .tool-link p { font-size: 0.78rem; color: var(--text2); margin: 0; line-height: 1.5; }
-    .tool-link .tl-arr { font-size: 0.76rem; color: var(--purple); font-weight: 700; margin-top: 7px; display: block; }
+    .tool-link .tl-arrow { font-size: 0.76rem; color: var(--purple); font-weight: 700; margin-top: 7px; display: block; }
+    .seo-kw { color: var(--text2); font-size: 0.76rem; font-style: italic; line-height: 1.7; margin-top: 10px; }
  
-    /* ── FOOTER ── */
-    footer { text-align: center; padding: 24px 14px; font-size: 0.78rem; color: var(--text2); border-top: 1px solid var(--border); background: var(--surface); transition: background 0.25s; }
-    .footer-brand { font-weight: 800; color: var(--text); font-size: 0.92rem; display: block; margin-bottom: 5px; }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 12px; margin: 9px 0; }
+    /* FOOTER */
+    footer { text-align: center; padding: 24px 16px; font-size: 0.78rem; color: var(--text2); border-top: 1px solid var(--border); background: var(--surface); transition: background 0.25s; }
+    .footer-brand { font-weight: 800; color: var(--text); font-size: 0.92rem; display: block; margin-bottom: 6px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; margin: 8px 0; }
     .footer-links a { color: var(--text2); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--purple); }
  
-    /* ── MOBILE ── */
-    @media (max-width: 640px) {
-      header { padding: 0 10px; gap: 6px; }
-      .nav-link { padding: 4px 7px; font-size: 0.74rem; }
-      .theme-toggle { padding: 4px 8px; font-size: 0.72rem; }
-      .hero { padding: 32px 14px 22px; }
-      .float-home { bottom: 16px; right: 14px; padding: 10px 14px; font-size: 0.78rem; }
-      .modal { padding: 16px; }
-      .name-row { grid-template-columns: 1fr; }
-      .font-grid { grid-template-columns: 1fr 1fr; }
-      .feat-grid { grid-template-columns: 1fr 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .tab-btn { font-size: 0.68rem; padding: 8px 2px; }
-      #draw-canvas { height: 130px; }
-      .btn-dl .dl-label { display: none; }
-      .tool-btn { padding: 5px 8px; font-size: 0.75rem; }
-      .tsep { display: none; }
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero { padding: 32px 14px 24px; }
+      .dl-label { display: none; }
+      .name-row { flex-direction: column; gap: 8px; }
+      .font-options { grid-template-columns: 1fr 1fr; }
+      header { padding: 0 12px; gap: 6px; }
+      .nav-link { padding: 4px 7px; font-size: 0.76rem; }
+      .floating-home { bottom: 16px; right: 16px; padding: 10px 14px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
+ 
+<!-- FLOATING HOME BUTTON -->
+<a href="https://www.helpingpdf.com/" class="floating-home" aria-label="Go to homepage">
+  <span>🏠</span> Home
+</a>
  
 <!-- HEADER -->
 <header>
@@ -267,23 +265,17 @@
     <a href="https://www.helpingpdf.com/" class="nav-link">Home</a>
     <a href="https://www.helpingpdf.com/#tools-section" class="nav-link active">Tools</a>
     <a href="https://www.helpingpdf.com/#blog-section" class="nav-link">Blog</a>
-    <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark/light mode">
-      <span id="theme-icon">🌙</span>
-      <span id="theme-label">Dark</span>
+    <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span><span id="theme-label">Dark</span>
     </button>
   </div>
 </header>
- 
-<!-- FLOATING HOME BUTTON -->
-<a href="https://www.helpingpdf.com/" class="float-home" aria-label="Back to Home">
-  <span>🏠</span> Home
-</a>
  
 <!-- HERO -->
 <div class="hero">
   <span class="hero-eyebrow">Free Online PDF Tool</span>
   <h1>Sign PDF Online <span>Free</span></h1>
-  <p>Draw your signature with mouse or touch, type your name, add initials, upload a company stamp — then place it anywhere on your PDF and download instantly. No account. No watermark. 100% private.</p>
+  <p>Draw your signature, type your name, add initials, or upload a company stamp — then place it anywhere on your PDF. Download instantly. No account. No watermark. 100% private.</p>
   <div class="badges">
     <span class="badge">✓ No Account</span>
     <span class="badge">✓ No Charges</span>
@@ -297,8 +289,9 @@
 <div class="card">
   <!-- TOOLBAR -->
   <div id="toolbar">
-    <span class="tlabel">Sign</span>
-    <button class="tool-btn" id="btn-add-sig">✍️ Add Signature</button>
+    <button class="tool-btn" id="btn-add-sig">✍️ Signature</button>
+    <button class="tool-btn" id="btn-add-initials">AC Initials</button>
+    <button class="tool-btn" id="btn-add-stamp">🏢 Stamp</button>
     <div class="tsep"></div>
     <button class="tool-btn" id="btn-undo-sig">↩ Undo</button>
     <button class="tool-btn" id="btn-clear-sigs">🗑 Clear</button>
@@ -308,7 +301,7 @@
   </div>
  
   <!-- HINT -->
-  <div id="hint-bar">✍️ Click <strong>"Add Signature"</strong> → create your signature → then <strong>click on the PDF</strong> to place it. Drag to move, corner to resize.</div>
+  <div id="hint-bar">✍️ Click <strong>"Signature"</strong>, <strong>"Initials"</strong>, or <strong>"Stamp"</strong> to create — then click anywhere on the PDF to place it. Drag to move, corner handle to resize.</div>
  
   <!-- PAGE NAV -->
   <div id="page-nav">
@@ -317,106 +310,104 @@
     <button class="pg-btn" id="btn-next">Next ▶</button>
   </div>
  
-  <!-- PDF CANVAS -->
+  <!-- CANVAS -->
   <div id="canvas-wrapper">
     <canvas id="pdf-canvas"></canvas>
   </div>
  
-  <!-- UPLOAD ZONE -->
-  <div id="upload-zone" role="button" tabindex="0" aria-label="Upload PDF to sign">
+  <!-- UPLOAD -->
+  <div id="upload-zone" role="button" tabindex="0" aria-label="Upload PDF file">
     <span class="upload-icon">✒️</span>
     <h2>Drag &amp; Drop Your PDF Here</h2>
-    <p>or select a PDF file from your device to start signing</p>
+    <p>or select a PDF from your device to start signing</p>
     <button class="btn-browse" id="btn-browse">Browse PDF File</button>
-    <input type="file" id="file-input" accept="application/pdf" style="display:none" />
+    <input type="file" id="file-input" accept="application/pdf" style="display:none" aria-label="Select PDF" />
   </div>
 </div>
  
 <!-- SIGNATURE MODAL -->
 <div class="modal-overlay hidden" id="sig-modal">
   <div class="modal">
-    <div class="modal-title">✍️ Create Your Signature</div>
+    <div class="modal-header">
+      <h3 id="modal-title">✍️ Create Signature</h3>
+      <button class="modal-close" id="btn-modal-close">✕</button>
+    </div>
  
-    <!-- Name + Initials inputs -->
-    <div class="name-row">
-      <div>
-        <label>Full Name</label>
-        <input type="text" id="full-name-input" placeholder="Your full name..." maxlength="40" />
+    <!-- Name row -->
+    <div class="name-row" id="name-row">
+      <div style="flex:2">
+        <label>Full name</label>
+        <input type="text" id="full-name-input" placeholder="Your full name..." maxlength="50" />
       </div>
-      <div>
+      <div style="flex:1">
         <label>Initials</label>
-        <input type="text" id="initials-input" placeholder="e.g. S.A." maxlength="5" />
+        <input type="text" id="initials-input" placeholder="A.B." maxlength="5" />
       </div>
     </div>
  
-    <!-- Tabs -->
-    <div class="tab-btns">
+    <div class="tab-btns" id="modal-tabs">
       <button class="tab-btn active" data-tab="draw">✏️ Draw</button>
-      <button class="tab-btn" data-tab="type">⌨️ Signature</button>
-      <button class="tab-btn" data-tab="initials">AC Initials</button>
-      <button class="tab-btn" data-tab="upload">🖼️ Upload</button>
+      <button class="tab-btn" data-tab="type">⌨️ Type</button>
+      <button class="tab-btn" data-tab="initials-tab">AC Initials</button>
+      <button class="tab-btn" data-tab="upload">📁 Upload</button>
       <button class="tab-btn" data-tab="stamp">🏢 Stamp</button>
     </div>
  
     <!-- DRAW -->
     <div class="tab-panel active" id="tab-draw">
-      <canvas id="draw-canvas" width="460" height="150" aria-label="Signature drawing area"></canvas>
+      <canvas id="draw-canvas" width="460" height="150" aria-label="Drawing canvas for signature"></canvas>
       <div class="draw-controls">
-        <div class="color-dot active" style="background:#000000" data-color="#000000" title="Black"></div>
+        <div class="color-dot selected" style="background:#000000" data-color="#000000" title="Black"></div>
         <div class="color-dot" style="background:#1d4ed8" data-color="#1d4ed8" title="Blue"></div>
         <div class="color-dot" style="background:#dc2626" data-color="#dc2626" title="Red"></div>
         <div class="color-dot" style="background:#16a34a" data-color="#16a34a" title="Green"></div>
         <button class="stroke-btn active" data-stroke="2">Thin</button>
-        <button class="stroke-btn" data-stroke="3.5">Medium</button>
+        <button class="stroke-btn" data-stroke="3">Medium</button>
         <button class="stroke-btn" data-stroke="5">Thick</button>
-        <button class="btn-clr" id="btn-clear-draw">Clear</button>
+        <button class="btn-clear-draw" id="btn-clear-draw">Clear ✕</button>
       </div>
     </div>
  
-    <!-- TYPE SIGNATURE -->
+    <!-- TYPE (Full name as signature) -->
     <div class="tab-panel" id="tab-type">
-      <input class="type-input" id="type-sig-input" placeholder="Type your full name..." maxlength="40" />
-      <div class="font-grid">
-        <div class="font-opt f1 active" data-font="'Dancing Script', cursive" data-size="64">Signature</div>
-        <div class="font-opt f2" data-font="'Great Vibes', cursive" data-size="58">Signature</div>
-        <div class="font-opt f3" data-font="'Caveat', cursive" data-size="60">Signature</div>
-        <div class="font-opt f4" data-font="Georgia, serif" data-size="52">Signature</div>
+      <input type="text" class="type-input" id="type-sig-input" placeholder="Type your full name..." maxlength="40" />
+      <div class="font-options">
+        <div class="font-opt f1 active" data-font="'Dancing Script', cursive">Signature</div>
+        <div class="font-opt f2" data-font="'Pacifico', cursive">Signature</div>
+        <div class="font-opt f3" data-font="'Caveat', cursive">Signature</div>
+        <div class="font-opt f4" data-font="'Great Vibes', cursive">Signature</div>
       </div>
     </div>
  
     <!-- INITIALS -->
-    <div class="tab-panel" id="tab-initials">
-      <input class="type-input" id="type-initials-input" placeholder="Type your initials e.g. S.A." maxlength="6" />
-      <div class="font-grid">
-        <div class="font-opt f1 active" data-font-init="'Dancing Script', cursive" data-size-init="80">S.A.</div>
-        <div class="font-opt f2" data-font-init="'Great Vibes', cursive" data-size-init="72">S.A.</div>
-        <div class="font-opt f3" data-font-init="'Caveat', cursive" data-size-init="76">S.A.</div>
-        <div class="font-opt f4" data-font-init="Georgia, serif" data-size-init="68">S.A.</div>
+    <div class="tab-panel" id="tab-initials-tab">
+      <input type="text" class="type-input" id="type-initials-input" placeholder="Type your initials (e.g. S.A.)" maxlength="6" />
+      <div class="font-options">
+        <div class="font-opt f1 active" data-font-init="'Dancing Script', cursive">S.A.</div>
+        <div class="font-opt f2" data-font-init="'Pacifico', cursive">S.A.</div>
+        <div class="font-opt f3" data-font-init="'Caveat', cursive">S.A.</div>
+        <div class="font-opt f4" data-font-init="'Great Vibes', cursive">S.A.</div>
       </div>
     </div>
  
-    <!-- UPLOAD SIG -->
+    <!-- UPLOAD SIGNATURE IMAGE -->
     <div class="tab-panel" id="tab-upload">
       <div class="upload-sig-zone" id="sig-upload-zone">
-        <span style="font-size:1.8rem">🖼️</span>
-        <p>Click to upload your signature image<br><small>(PNG with transparent background recommended)</small></p>
+        <span style="font-size:2rem">🖼️</span>
+        <p>Click to upload your signature image<br><small>PNG with transparent background recommended</small></p>
         <input type="file" id="sig-img-input" accept="image/*" style="display:none" />
       </div>
-      <div id="sig-img-preview">
-        <img id="sig-preview-img" alt="Signature preview" />
-      </div>
+      <div id="sig-img-preview"><img id="sig-preview-img" alt="Signature preview" /></div>
     </div>
  
     <!-- COMPANY STAMP -->
     <div class="tab-panel" id="tab-stamp">
       <div class="upload-sig-zone" id="stamp-upload-zone">
-        <span style="font-size:1.8rem">🏢</span>
-        <p>Click to upload company stamp or logo<br><small>Accepted: PNG, JPG, SVG</small></p>
+        <span style="font-size:2rem">🏢</span>
+        <p>Upload company stamp or logo<br><small>Accepted: PNG, JPG, SVG</small></p>
         <input type="file" id="stamp-img-input" accept="image/*" style="display:none" />
       </div>
-      <div id="stamp-img-preview" style="margin-top:10px;text-align:center;display:none;">
-        <img id="stamp-preview-img" style="max-height:90px;border:1px solid var(--border);border-radius:8px;padding:4px;" alt="Stamp preview" />
-      </div>
+      <div id="stamp-img-preview"><img id="stamp-preview-img" alt="Stamp preview" /></div>
     </div>
  
     <div class="modal-footer">
@@ -430,56 +421,53 @@
 <div class="info-card">
   <h2>⭐ Why Use Helping PDF Signer?</h2>
   <div class="feat-grid">
-    <div class="feat-item"><span class="fi">✏️</span><strong>Draw Signature</strong><p>Use mouse or touch/finger to draw your real handwritten signature.</p></div>
-    <div class="feat-item"><span class="fi">⌨️</span><strong>Type Signature</strong><p>Type your name and choose from 4 beautiful handwriting fonts.</p></div>
-    <div class="feat-item"><span class="fi">AC</span><strong>Add Initials</strong><p>Add your initials in elegant fonts — perfect for multi-page documents.</p></div>
-    <div class="feat-item"><span class="fi">🏢</span><strong>Company Stamp</strong><p>Upload your company logo or official stamp image and place it on any PDF.</p></div>
-    <div class="feat-item"><span class="fi">📍</span><strong>Place Anywhere</strong><p>Click any spot on any page to place signature. Drag to move, resize from corner.</p></div>
-    <div class="feat-item"><span class="fi">🔒</span><strong>100% Private</strong><p>Your PDF and signature never leave your device. Zero server upload.</p></div>
+    <div class="feat-item"><span class="fi">✏️</span><strong>Draw Signature</strong><p>Use mouse or finger (touch) to draw your real handwritten signature.</p></div>
+    <div class="feat-item"><span class="fi">⌨️</span><strong>Type Signature</strong><p>Type your name and choose from 4 beautiful handwriting-style fonts.</p></div>
+    <div class="feat-item"><span class="fi">AC</span><strong>Add Initials</strong><p>Type your initials and place them in a stylish font anywhere on the document.</p></div>
+    <div class="feat-item"><span class="fi">🏢</span><strong>Company Stamp</strong><p>Upload your company logo or official stamp image and place it on the PDF.</p></div>
+    <div class="feat-item"><span class="fi">📍</span><strong>Place Anywhere</strong><p>Click any spot on any page. Drag to reposition, resize from the corner handle.</p></div>
+    <div class="feat-item"><span class="fi">🔒</span><strong>100% Private</strong><p>Your PDF and signature never leave your device. Zero server uploads.</p></div>
   </div>
  
-  <h3>How to Sign Your PDF – 4 Simple Steps</h3>
+  <h3>How to Sign Your PDF – 4 Quick Steps</h3>
   <ol class="steps-ol">
-    <li><p><strong>Upload Your PDF:</strong> Drag and drop or click "Browse PDF File" to open your contract, form, or document.</p></li>
-    <li><p><strong>Create Your Signature:</strong> Click "Add Signature" — draw it with mouse or touch, type your name in a beautiful font, add initials, or upload a signature/stamp image.</p></li>
-    <li><p><strong>Place It on the PDF:</strong> Click anywhere on the page to place your signature. Drag to reposition, pull the corner to resize. Add it on multiple pages if needed.</p></li>
-    <li><p><strong>Download:</strong> Click the green Download button. Your signature is permanently embedded in the PDF and saved directly to your device.</p></li>
+    <li><p><strong>Upload Your PDF:</strong> Drag and drop or click "Browse PDF File" to open any contract, form, or document.</p></li>
+    <li><p><strong>Create Your Signature:</strong> Click "Signature", "Initials", or "Stamp" in the toolbar. Draw, type, or upload as you prefer.</p></li>
+    <li><p><strong>Place It on the PDF:</strong> Click anywhere on the page to place your signature. Drag it to the exact position, resize from the corner.</p></li>
+    <li><p><strong>Download:</strong> Click the green Download button. Your signature is permanently embedded and the PDF is saved to your device.</p></li>
   </ol>
  
-  <h3>🔒 Is My Document &amp; Signature Safe?</h3>
-  <p>Completely. Your PDF and signature data never leave your device. No file is uploaded to any external server. Everything runs inside your browser using trusted open-source libraries — PDF.js and PDF-lib. Once the page loads, it works fully offline.</p>
+  <h3>🔒 Is My Data Safe?</h3>
+  <p>Completely. Your PDF and signature data never travel outside your device. No file upload happens at any point. Everything runs in your browser using PDF.js and PDF-lib. Works fully offline after first load.</p>
   <ul class="check-list">
     <li>No file upload to any server — ever</li>
+    <li>No account, no sign-up, no email required</li>
     <li>Works fully offline after page load</li>
-    <li>No account, no email, no sign-up required</li>
     <li>Signature permanently embedded in downloaded PDF</li>
     <li>No watermark added to your document</li>
   </ul>
-  <p class="seo-kw">sign pdf online free • add signature to pdf • pdf signer free • digital signature pdf • draw signature on pdf • esign pdf free • sign pdf no watermark • add initials to pdf • company stamp pdf</p>
+  <p class="seo-kw">sign pdf online free • add signature to pdf • pdf signer free • esign pdf no account • draw signature on pdf • add initials to pdf • company stamp pdf • digital signature pdf free</p>
 </div>
  
 <!-- OTHER TOOLS -->
 <div class="info-card">
   <h2>🛠️ More Free PDF Tools</h2>
-  <p>Everything you need to work with PDF files — all free, all private, all in your browser.</p>
-  <div class="tools-grid">
+  <p>Everything you need to manage PDF files — all free, all private, all browser-based.</p>
+  <div class="other-tools">
     <a href="https://www.helpingpdf.com/compressor.html" class="tool-link">
-      <span class="tl-icon">📦</span>
-      <strong>PDF Compressor</strong>
-      <p>Reduce PDF file size without losing quality. Perfect for email and upload limits.</p>
-      <span class="tl-arr">Use tool →</span>
+      <span class="tl-icon">📦</span><strong>PDF Compressor</strong>
+      <p>Reduce PDF size without losing quality. Perfect for email and uploads.</p>
+      <span class="tl-arrow">Use tool →</span>
     </a>
     <a href="https://www.helpingpdf.com/filler.html" class="tool-link">
-      <span class="tl-icon">✍️</span>
-      <strong>PDF Form Filler</strong>
-      <p>Click anywhere on a PDF to type text. Fill forms, contracts, and applications free.</p>
-      <span class="tl-arr">Use tool →</span>
+      <span class="tl-icon">✍️</span><strong>PDF Form Filler</strong>
+      <p>Click anywhere on a PDF to type text. Fill forms and contracts instantly.</p>
+      <span class="tl-arrow">Use tool →</span>
     </a>
     <a href="https://www.helpingpdf.com/signer.html" class="tool-link" style="border-color:var(--purple)">
-      <span class="tl-icon">✒️</span>
-      <strong>PDF Signer</strong>
-      <p>You are here — sign any PDF online free. Draw, type, initials, or company stamp.</p>
-      <span class="tl-arr">Current tool</span>
+      <span class="tl-icon">✒️</span><strong>PDF Signer</strong>
+      <p>You are here — sign any PDF free with draw, type, initials or stamp.</p>
+      <span class="tl-arrow" style="color:var(--purple)">Current tool</span>
     </a>
   </div>
 </div>
@@ -488,11 +476,11 @@
  
 <footer>
   <span class="footer-brand">📄 Helping PDF</span>
-  <p>Safe, secure, and free PDF tools. All processing happens locally in your browser — your documents stay private.</p>
+  <p>Your safe, secure, and free solution for all PDF needs. All processing happens locally in your browser.</p>
   <div class="footer-links">
     <a href="https://www.helpingpdf.com/">Home</a>
     <a href="https://www.helpingpdf.com/compressor.html">Compressor</a>
-    <a href="https://www.helpingpdf.com/filler.html">Form Filler</a>
+    <a href="https://www.helpingpdf.com/filler.html">Filler</a>
     <a href="https://www.helpingpdf.com/signer.html">Signer</a>
     <a href="https://www.helpingpdf.com/about.html">About</a>
     <a href="https://www.helpingpdf.com/contact.html">Contact</a>
@@ -519,38 +507,39 @@ let pdfDoc = null, totalPages = 1, curPage = 1, scale = 1.5, origBytes = null;
 let placements = {};
 let currentSigDataUrl = null;
 let drawColor = '#000000', drawStroke = 2;
-let selectedFont = "'Dancing Script', cursive", selectedFontSize = 64;
-let selectedInitFont = "'Dancing Script', cursive", selectedInitSize = 80;
+let selectedSigFont = "'Dancing Script', cursive";
+let selectedInitFont = "'Dancing Script', cursive";
 let uploadedSigUrl = null, uploadedStampUrl = null;
 let activeTab = 'draw';
+let modalMode = 'signature'; // 'signature' | 'initials' | 'stamp'
  
 // ── DOM ──
-const uploadZone  = document.getElementById('upload-zone');
-const fileInput   = document.getElementById('file-input');
-const canvasWrap  = document.getElementById('canvas-wrapper');
-const canvas      = document.getElementById('pdf-canvas');
-const ctx         = canvas.getContext('2d');
-const toolbar     = document.getElementById('toolbar');
-const hintBar     = document.getElementById('hint-bar');
-const pageNav     = document.getElementById('page-nav');
-const pageInfo    = document.getElementById('page-info');
-const btnPrev     = document.getElementById('btn-prev');
-const btnNext     = document.getElementById('btn-next');
-const btnDL       = document.getElementById('btn-download');
-const sigModal    = document.getElementById('sig-modal');
-const drawCanvas  = document.getElementById('draw-canvas');
-const dCtx        = drawCanvas.getContext('2d');
+const uploadZone = document.getElementById('upload-zone');
+const fileInput  = document.getElementById('file-input');
+const canvasWrap = document.getElementById('canvas-wrapper');
+const canvas     = document.getElementById('pdf-canvas');
+const ctx        = canvas.getContext('2d');
+const toolbar    = document.getElementById('toolbar');
+const hintBar    = document.getElementById('hint-bar');
+const pageNav    = document.getElementById('page-nav');
+const pageInfo   = document.getElementById('page-info');
+const btnPrev    = document.getElementById('btn-prev');
+const btnNext    = document.getElementById('btn-next');
+const btnDL      = document.getElementById('btn-download');
+const sigModal   = document.getElementById('sig-modal');
+const drawCanvas = document.getElementById('draw-canvas');
+const dCtx       = drawCanvas.getContext('2d');
  
-// ── PDF UPLOAD ──
+// ── UPLOAD PDF ──
 document.getElementById('btn-browse').addEventListener('click', () => fileInput.click());
 fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+uploadZone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
 uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
 uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
 uploadZone.addEventListener('drop', e => {
   e.preventDefault(); uploadZone.classList.remove('drag-over');
   const f = e.dataTransfer.files[0];
   if (f && f.type === 'application/pdf') loadFile(f);
-  else alert('Please drop a valid PDF file.');
 });
  
 async function loadFile(file) {
@@ -579,210 +568,247 @@ async function renderPage(num) {
 function showPlacements(num) {
   document.querySelectorAll('.sig-placer').forEach(el => el.remove());
   if (!placements[num]) return;
-  placements[num].forEach(p => { canvasWrap.appendChild(p.el); updatePlacerPos(p); });
+  placements[num].forEach(p => {
+    canvasWrap.appendChild(p.el);
+    p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px';
+    p.el.style.width = p.w + 'px'; p.el.style.height = p.h + 'px';
+  });
 }
  
-function updatePlacerPos(p) {
-  p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px';
-  p.el.style.width = p.w + 'px'; p.el.style.height = p.h + 'px';
-}
- 
-// ── PLACE SIGNATURE ON CLICK ──
+// ── CLICK ON PDF → PLACE ──
 canvas.addEventListener('click', e => {
   if (!currentSigDataUrl) return;
   const r = canvas.getBoundingClientRect();
-  const x = e.clientX - r.left + canvasWrap.scrollLeft;
-  const y = e.clientY - r.top  + canvasWrap.scrollTop;
-  placeSig(x - 80, y - 30, currentSigDataUrl);
+  const x = e.clientX - r.left + canvasWrap.scrollLeft - 80;
+  const y = e.clientY - r.top  + canvasWrap.scrollTop  - 30;
+  placeSig(Math.max(0, x), Math.max(0, y), currentSigDataUrl);
 });
+ 
+// Touch place on canvas
+canvas.addEventListener('touchend', e => {
+  if (!currentSigDataUrl) return;
+  e.preventDefault();
+  const touch = e.changedTouches[0];
+  const r = canvas.getBoundingClientRect();
+  const x = touch.clientX - r.left + canvasWrap.scrollLeft - 80;
+  const y = touch.clientY - r.top  + canvasWrap.scrollTop  - 30;
+  placeSig(Math.max(0, x), Math.max(0, y), currentSigDataUrl);
+}, { passive: false });
  
 function placeSig(x, y, dataUrl) {
   const el = document.createElement('div');
   el.className = 'sig-placer';
-  const img = document.createElement('img'); img.src = dataUrl;
-  const del = document.createElement('button'); del.className = 'del-sig'; del.textContent = '✕';
-  const rh  = document.createElement('div'); rh.className = 'resize-h';
-  el.appendChild(img); el.appendChild(del); el.appendChild(rh);
+  el.style.cssText = `left:${x}px;top:${y}px;width:160px;height:60px;`;
+  const img = document.createElement('img');
+  img.src = dataUrl;
+  const del = document.createElement('button');
+  del.className = 'del-sig'; del.textContent = '✕';
+  del.addEventListener('mousedown', ev => { ev.stopPropagation(); removeP(el, curPage); });
+  del.addEventListener('touchend', ev => { ev.stopPropagation(); removeP(el, curPage); });
+  const resH = document.createElement('div');
+  resH.className = 'resize-handle';
+  el.appendChild(img); el.appendChild(del); el.appendChild(resH);
   canvasWrap.appendChild(el);
   const entry = { el, sigDataUrl: dataUrl, x, y, w: 160, h: 60 };
-  el.style.left = x+'px'; el.style.top = y+'px'; el.style.width = '160px'; el.style.height = '60px';
-  del.addEventListener('mousedown', e => { e.stopPropagation(); el.remove(); if (placements[curPage]) placements[curPage] = placements[curPage].filter(p => p !== entry); });
-  del.addEventListener('touchstart', e => { e.stopPropagation(); el.remove(); if (placements[curPage]) placements[curPage] = placements[curPage].filter(p => p !== entry); }, {passive:true});
-  makeDraggable(el, entry);
-  makeResizable(rh, el, entry);
   if (!placements[curPage]) placements[curPage] = [];
   placements[curPage].push(entry);
+  makeDraggable(el, entry);
+  makeResizable(resH, el, entry);
 }
  
+function removeP(el, page) { el.remove(); if (placements[page]) placements[page] = placements[page].filter(p => p.el !== el); }
+ 
 function makeDraggable(el, entry) {
-  let drag=false, sx, sy, ox, oy;
-  const start = (cx,cy) => { drag=true; sx=cx; sy=cy; ox=parseFloat(el.style.left); oy=parseFloat(el.style.top); };
-  const move  = (cx,cy) => { if(!drag) return; entry.x=parseFloat(el.style.left=ox+(cx-sx)+'px'); entry.y=parseFloat(el.style.top=oy+(cy-sy)+'px'); };
-  const stop  = () => { drag=false; };
-  el.addEventListener('mousedown', e => { if(e.target.classList.contains('del-sig')||e.target.classList.contains('resize-h')) return; start(e.clientX,e.clientY); e.preventDefault(); });
-  document.addEventListener('mousemove', e => move(e.clientX,e.clientY));
-  document.addEventListener('mouseup', stop);
-  el.addEventListener('touchstart', e => { if(e.target.classList.contains('del-sig')||e.target.classList.contains('resize-h')) return; start(e.touches[0].clientX,e.touches[0].clientY); }, {passive:true});
-  document.addEventListener('touchmove', e => { if(drag) move(e.touches[0].clientX,e.touches[0].clientY); }, {passive:true});
-  document.addEventListener('touchend', stop);
+  let drag = false, sx, sy, ox, oy;
+  const start = (cx, cy) => { drag = true; sx = cx; sy = cy; ox = parseFloat(el.style.left); oy = parseFloat(el.style.top); };
+  const move  = (cx, cy) => { if (!drag) return; entry.x = parseFloat(el.style.left = ox+(cx-sx)+'px'); entry.y = parseFloat(el.style.top = oy+(cy-sy)+'px'); };
+  const end   = () => { drag = false; };
+  el.addEventListener('mousedown', e => { if (e.target.classList.contains('del-sig') || e.target.classList.contains('resize-handle')) return; start(e.clientX, e.clientY); e.preventDefault(); });
+  document.addEventListener('mousemove', e => move(e.clientX, e.clientY));
+  document.addEventListener('mouseup', end);
+  el.addEventListener('touchstart', e => { if (e.target.classList.contains('del-sig') || e.target.classList.contains('resize-handle')) return; start(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  el.addEventListener('touchmove', e => { move(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+  el.addEventListener('touchend', end);
 }
  
 function makeResizable(handle, el, entry) {
-  let res=false, sx, sy, ow, oh;
-  handle.addEventListener('mousedown', e => { res=true; sx=e.clientX; sy=e.clientY; ow=el.offsetWidth; oh=el.offsetHeight; e.preventDefault(); e.stopPropagation(); });
-  handle.addEventListener('touchstart', e => { res=true; sx=e.touches[0].clientX; sy=e.touches[0].clientY; ow=el.offsetWidth; oh=el.offsetHeight; e.stopPropagation(); }, {passive:true});
-  document.addEventListener('mousemove', e => { if(!res) return; el.style.width=(entry.w=Math.max(50,ow+(e.clientX-sx)))+'px'; el.style.height=(entry.h=Math.max(25,oh+(e.clientY-sy)))+'px'; });
-  document.addEventListener('touchmove', e => { if(!res) return; el.style.width=(entry.w=Math.max(50,ow+(e.touches[0].clientX-sx)))+'px'; el.style.height=(entry.h=Math.max(25,oh+(e.touches[0].clientY-sy)))+'px'; }, {passive:true});
-  document.addEventListener('mouseup', ()=>{ res=false; });
-  document.addEventListener('touchend', ()=>{ res=false; });
+  let resizing = false, sx, sy, ow, oh;
+  const start = (cx, cy) => { resizing = true; sx = cx; sy = cy; ow = el.offsetWidth; oh = el.offsetHeight; };
+  const move  = (cx, cy) => { if (!resizing) return; entry.w = parseFloat(el.style.width  = Math.max(40, ow+(cx-sx))+'px'); entry.h = parseFloat(el.style.height = Math.max(20, oh+(cy-sy))+'px'); };
+  const end   = () => { resizing = false; };
+  handle.addEventListener('mousedown', e => { start(e.clientX, e.clientY); e.preventDefault(); e.stopPropagation(); });
+  document.addEventListener('mousemove', e => move(e.clientX, e.clientY));
+  document.addEventListener('mouseup', end);
+  handle.addEventListener('touchstart', e => { start(e.touches[0].clientX, e.touches[0].clientY); e.stopPropagation(); }, { passive: true });
+  handle.addEventListener('touchmove', e => { move(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+  handle.addEventListener('touchend', end);
 }
  
 // ── TOOLBAR ──
-document.getElementById('btn-add-sig').addEventListener('click', () => {
+document.getElementById('btn-add-sig').addEventListener('click', () => openModal('signature'));
+document.getElementById('btn-add-initials').addEventListener('click', () => openModal('initials'));
+document.getElementById('btn-add-stamp').addEventListener('click', () => openModal('stamp'));
+ 
+function openModal(mode) {
+  modalMode = mode;
+  const titles = { signature: '✍️ Create Signature', initials: 'AC Create Initials', stamp: '🏢 Company Stamp' };
+  document.getElementById('modal-title').textContent = titles[mode];
+  if (mode === 'stamp') {
+    // Auto-switch to stamp tab
+    switchTab('stamp');
+  } else if (mode === 'initials') {
+    switchTab('initials-tab');
+  } else {
+    switchTab('draw');
+  }
   sigModal.classList.remove('hidden');
-  resetDraw();
-});
+  if (activeTab === 'draw') resetDrawCanvas();
+}
+ 
 document.getElementById('btn-undo-sig').addEventListener('click', () => {
   const pg = placements[curPage];
   if (pg && pg.length) { const last = pg.pop(); last.el.remove(); }
 });
 document.getElementById('btn-clear-sigs').addEventListener('click', () => {
   if (!confirm('Remove all signatures on this page?')) return;
-  (placements[curPage]||[]).forEach(p=>p.el.remove()); placements[curPage]=[];
+  (placements[curPage] || []).forEach(p => p.el.remove());
+  placements[curPage] = [];
 });
-btnPrev.addEventListener('click', async()=>{ if(curPage>1){curPage--;await renderPage(curPage);} });
-btnNext.addEventListener('click', async()=>{ if(curPage<totalPages){curPage++;await renderPage(curPage);} });
-document.getElementById('btn-new').addEventListener('click', ()=>{
-  if(!confirm('Open a new file? Unsaved changes will be lost.')) return;
-  document.querySelectorAll('.sig-placer').forEach(el=>el.remove());
-  pdfDoc=null;origBytes=null;placements={};currentSigDataUrl=null;
-  uploadZone.style.display='';toolbar.classList.remove('visible');
-  canvasWrap.classList.remove('visible');hintBar.style.display='none';
-  pageNav.classList.remove('visible');btnDL.disabled=true;fileInput.value='';
+btnPrev.addEventListener('click', async () => { if (curPage > 1) { curPage--; await renderPage(curPage); } });
+btnNext.addEventListener('click', async () => { if (curPage < totalPages) { curPage++; await renderPage(curPage); } });
+document.getElementById('btn-new').addEventListener('click', () => {
+  if (!confirm('Open a new file? Unsaved changes will be lost.')) return;
+  document.querySelectorAll('.sig-placer').forEach(el => el.remove());
+  pdfDoc = null; origBytes = null; placements = {}; currentSigDataUrl = null;
+  uploadZone.style.display = ''; toolbar.classList.remove('visible');
+  canvasWrap.classList.remove('visible'); hintBar.style.display = 'none';
+  pageNav.classList.remove('visible'); btnDL.disabled = true; fileInput.value = '';
 });
  
 // ── MODAL TABS ──
 document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');
-    activeTab = btn.dataset.tab;
-    document.getElementById('tab-'+activeTab).classList.add('active');
-  });
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
  
-// ── DRAW ──
-let drawing=false, lastX=0, lastY=0;
-function resetDraw() { dCtx.clearRect(0,0,drawCanvas.width,drawCanvas.height); }
- 
-function getCanvasPos(e, c) {
-  const r = c.getBoundingClientRect();
-  const scX = c.width/r.width, scY = c.height/r.height;
-  if (e.touches) return { x:(e.touches[0].clientX-r.left)*scX, y:(e.touches[0].clientY-r.top)*scY };
-  return { x:(e.clientX-r.left)*scX, y:(e.clientY-r.top)*scY };
+function switchTab(tabId) {
+  activeTab = tabId;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'tab-' + tabId));
+  if (tabId === 'draw') resetDrawCanvas();
 }
  
-const drawStart = e => { drawing=true; const p=getCanvasPos(e,drawCanvas); lastX=p.x; lastY=p.y; };
-const drawMove  = e => {
-  if(!drawing) return;
-  const p=getCanvasPos(e,drawCanvas);
-  dCtx.beginPath(); dCtx.moveTo(lastX,lastY); dCtx.lineTo(p.x,p.y);
-  dCtx.strokeStyle=drawColor; dCtx.lineWidth=drawStroke; dCtx.lineCap='round'; dCtx.lineJoin='round'; dCtx.stroke();
-  lastX=p.x; lastY=p.y;
-};
-const drawStop  = () => { drawing=false; };
+document.getElementById('btn-modal-close').addEventListener('click', () => sigModal.classList.add('hidden'));
+document.getElementById('btn-cancel-sig').addEventListener('click', () => sigModal.classList.add('hidden'));
+sigModal.addEventListener('click', e => { if (e.target === sigModal) sigModal.classList.add('hidden'); });
  
-drawCanvas.addEventListener('mousedown', drawStart);
-drawCanvas.addEventListener('mousemove', drawMove);
-drawCanvas.addEventListener('mouseup', drawStop);
-drawCanvas.addEventListener('mouseleave', drawStop);
-drawCanvas.addEventListener('touchstart', e=>{e.preventDefault();drawStart(e);},{passive:false});
-drawCanvas.addEventListener('touchmove',  e=>{e.preventDefault();drawMove(e); },{passive:false});
-drawCanvas.addEventListener('touchend',   drawStop);
+// ── DRAW CANVAS (mouse + touch) ──
+let drawing = false, lastX = 0, lastY = 0;
+function resetDrawCanvas() { dCtx.clearRect(0, 0, drawCanvas.width, drawCanvas.height); }
  
-document.getElementById('btn-clear-draw').addEventListener('click', resetDraw);
-document.querySelectorAll('.color-dot').forEach(d => d.addEventListener('click', ()=>{
-  document.querySelectorAll('.color-dot').forEach(x=>x.classList.remove('active')); d.classList.add('active'); drawColor=d.dataset.color;
-}));
-document.querySelectorAll('.stroke-btn').forEach(b => b.addEventListener('click', ()=>{
-  document.querySelectorAll('.stroke-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); drawStroke=parseFloat(b.dataset.stroke);
-}));
- 
-// ── FONT SELECT (Signature) ──
-document.querySelectorAll('#tab-type .font-opt').forEach(opt => opt.addEventListener('click', ()=>{
-  document.querySelectorAll('#tab-type .font-opt').forEach(o=>o.classList.remove('active')); opt.classList.add('active');
-  selectedFont=opt.dataset.font; selectedFontSize=parseInt(opt.dataset.size);
-}));
- 
-// ── FONT SELECT (Initials) ──
-document.querySelectorAll('#tab-initials .font-opt').forEach(opt => opt.addEventListener('click', ()=>{
-  document.querySelectorAll('#tab-initials .font-opt').forEach(o=>o.classList.remove('active')); opt.classList.add('active');
-  selectedInitFont=opt.dataset.fontInit; selectedInitSize=parseInt(opt.dataset.sizeInit);
-}));
- 
-// ── UPLOAD SIG ──
-document.getElementById('sig-upload-zone').addEventListener('click', ()=>document.getElementById('sig-img-input').click());
-document.getElementById('sig-img-input').addEventListener('change', e=>{
-  const f=e.target.files[0]; if(!f) return;
-  const r=new FileReader(); r.onload=ev=>{ uploadedSigUrl=ev.target.result; document.getElementById('sig-preview-img').src=uploadedSigUrl; document.getElementById('sig-img-preview').style.display='block'; }; r.readAsDataURL(f);
-});
- 
-// ── UPLOAD STAMP ──
-document.getElementById('stamp-upload-zone').addEventListener('click', ()=>document.getElementById('stamp-img-input').click());
-document.getElementById('stamp-img-input').addEventListener('change', e=>{
-  const f=e.target.files[0]; if(!f) return;
-  const r=new FileReader(); r.onload=ev=>{ uploadedStampUrl=ev.target.result; document.getElementById('stamp-preview-img').src=uploadedStampUrl; document.getElementById('stamp-img-preview').style.display='block'; }; r.readAsDataURL(f);
-});
- 
-// ── MODAL CANCEL ──
-document.getElementById('btn-cancel-sig').addEventListener('click', ()=>sigModal.classList.add('hidden'));
-sigModal.addEventListener('click', e=>{ if(e.target===sigModal) sigModal.classList.add('hidden'); });
- 
-// ── TEXT TO CANVAS HELPER ──
-function textToDataUrl(text, font, fontSize, w=460, h=140) {
-  const tc=document.createElement('canvas'); tc.width=w; tc.height=h;
-  const tCtx=tc.getContext('2d');
-  tCtx.font=`${fontSize}px ${font}`;
-  tCtx.fillStyle='#000000';
-  tCtx.textAlign='center'; tCtx.textBaseline='middle';
-  tCtx.fillText(text, w/2, h/2);
-  return tc.toDataURL('image/png');
+function getCanvasPos(e, cnv) {
+  const r = cnv.getBoundingClientRect();
+  const scX = cnv.width / r.width, scY = cnv.height / r.height;
+  if (e.touches && e.touches.length) return { x: (e.touches[0].clientX - r.left) * scX, y: (e.touches[0].clientY - r.top) * scY };
+  return { x: (e.clientX - r.left) * scX, y: (e.clientY - r.top) * scY };
+}
+function drawLine(x, y) {
+  dCtx.beginPath(); dCtx.moveTo(lastX, lastY); dCtx.lineTo(x, y);
+  dCtx.strokeStyle = drawColor; dCtx.lineWidth = drawStroke; dCtx.lineCap = 'round'; dCtx.lineJoin = 'round'; dCtx.stroke();
+  lastX = x; lastY = y;
 }
  
-// ── MODAL APPLY ──
-document.getElementById('btn-apply-sig').addEventListener('click', ()=>{
+drawCanvas.addEventListener('mousedown', e => { drawing = true; const p = getCanvasPos(e, drawCanvas); lastX = p.x; lastY = p.y; });
+drawCanvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getCanvasPos(e, drawCanvas); drawLine(p.x, p.y); });
+drawCanvas.addEventListener('mouseup', () => { drawing = false; });
+drawCanvas.addEventListener('mouseleave', () => { drawing = false; });
+drawCanvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getCanvasPos(e, drawCanvas); lastX = p.x; lastY = p.y; }, { passive: false });
+drawCanvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getCanvasPos(e, drawCanvas); drawLine(p.x, p.y); }, { passive: false });
+drawCanvas.addEventListener('touchend', () => { drawing = false; });
+ 
+document.getElementById('btn-clear-draw').addEventListener('click', resetDrawCanvas);
+document.querySelectorAll('.color-dot').forEach(dot => {
+  dot.addEventListener('click', () => { document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected')); dot.classList.add('selected'); drawColor = dot.dataset.color; });
+});
+document.querySelectorAll('.stroke-btn').forEach(btn => {
+  btn.addEventListener('click', () => { document.querySelectorAll('.stroke-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); drawStroke = parseInt(btn.dataset.stroke); });
+});
+ 
+// ── FONT SELECTION ──
+document.querySelectorAll('.font-opt[data-font]').forEach(opt => {
+  opt.addEventListener('click', () => { document.querySelectorAll('.font-opt[data-font]').forEach(o => o.classList.remove('active')); opt.classList.add('active'); selectedSigFont = opt.dataset.font; });
+});
+document.querySelectorAll('.font-opt[data-font-init]').forEach(opt => {
+  opt.addEventListener('click', () => { document.querySelectorAll('.font-opt[data-font-init]').forEach(o => o.classList.remove('active')); opt.classList.add('active'); selectedInitFont = opt.dataset.fontInit; });
+});
+ 
+// ── IMAGE UPLOADS ──
+document.getElementById('sig-upload-zone').addEventListener('click', () => document.getElementById('sig-img-input').click());
+document.getElementById('sig-img-input').addEventListener('change', e => {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { uploadedSigUrl = ev.target.result; document.getElementById('sig-preview-img').src = uploadedSigUrl; document.getElementById('sig-img-preview').style.display = 'block'; };
+  reader.readAsDataURL(file);
+});
+document.getElementById('stamp-upload-zone').addEventListener('click', () => document.getElementById('stamp-img-input').click());
+document.getElementById('stamp-img-input').addEventListener('change', e => {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { uploadedStampUrl = ev.target.result; document.getElementById('stamp-preview-img').src = uploadedStampUrl; document.getElementById('stamp-img-preview').style.display = 'block'; };
+  reader.readAsDataURL(file);
+});
+ 
+// ── APPLY SIG ──
+document.getElementById('btn-apply-sig').addEventListener('click', () => {
   let dataUrl = null;
-  if (activeTab==='draw') {
-    const imgData = dCtx.getImageData(0,0,drawCanvas.width,drawCanvas.height).data;
-    if (!imgData.some(v=>v!==0)) { alert('Please draw your signature first.'); return; }
-    dataUrl = drawCanvas.toDataURL('image/png');
-  } else if (activeTab==='type') {
-    const name = document.getElementById('type-sig-input').value.trim();
-    if (!name) { alert('Please type your name.'); return; }
-    dataUrl = textToDataUrl(name, selectedFont, selectedFontSize);
-  } else if (activeTab==='initials') {
-    const init = document.getElementById('type-initials-input').value.trim() || document.getElementById('initials-input').value.trim();
-    if (!init) { alert('Please type your initials.'); return; }
-    dataUrl = textToDataUrl(init, selectedInitFont, selectedInitSize, 240, 140);
-  } else if (activeTab==='upload') {
-    if (!uploadedSigUrl) { alert('Please upload a signature image.'); return; }
-    dataUrl = uploadedSigUrl;
-  } else if (activeTab==='stamp') {
-    if (!uploadedStampUrl) { alert('Please upload a stamp image.'); return; }
+ 
+  if (modalMode === 'stamp') {
+    if (!uploadedStampUrl) { alert('Please upload a company stamp image first.'); return; }
     dataUrl = uploadedStampUrl;
+ 
+  } else if (activeTab === 'draw') {
+    const imgData = dCtx.getImageData(0, 0, drawCanvas.width, drawCanvas.height);
+    const hasContent = imgData.data.some((v, i) => i % 4 === 3 && v > 0);
+    if (!hasContent) { alert('Please draw your signature first.'); return; }
+    dataUrl = drawCanvas.toDataURL('image/png');
+ 
+  } else if (activeTab === 'type') {
+    const name = document.getElementById('type-sig-input').value.trim();
+    if (!name) { alert('Please type your name first.'); return; }
+    dataUrl = textToDataUrl(name, selectedSigFont, 72, 460, 130);
+ 
+  } else if (activeTab === 'initials-tab') {
+    const init = document.getElementById('type-initials-input').value.trim() || document.getElementById('initials-input').value.trim();
+    if (!init) { alert('Please type your initials first.'); return; }
+    dataUrl = textToDataUrl(init, selectedInitFont, 80, 280, 130);
+ 
+  } else if (activeTab === 'upload') {
+    if (!uploadedSigUrl) { alert('Please upload a signature image first.'); return; }
+    dataUrl = uploadedSigUrl;
   }
+ 
   if (!dataUrl) return;
   currentSigDataUrl = dataUrl;
   sigModal.classList.add('hidden');
-  hintBar.innerHTML = '📍 <strong>Click anywhere on the PDF</strong> to place your signature. Click again to add another copy.';
+  hintBar.innerHTML = '📍 <strong>Click anywhere on the PDF</strong> to place your signature. You can place it multiple times.';
   hintBar.style.display = 'block';
 });
  
+function textToDataUrl(text, font, fontSize, width, height) {
+  const tc = document.createElement('canvas');
+  tc.width = width; tc.height = height;
+  const tCtx = tc.getContext('2d');
+  tCtx.font = `${fontSize}px ${font}`;
+  tCtx.fillStyle = '#000000';
+  tCtx.textAlign = 'center';
+  tCtx.textBaseline = 'middle';
+  tCtx.fillText(text, width / 2, height / 2);
+  return tc.toDataURL('image/png');
+}
+ 
 // ── DOWNLOAD ──
-btnDL.addEventListener('click', async ()=>{
+btnDL.addEventListener('click', async () => {
   if (!origBytes) return;
-  btnDL.innerHTML='⏳ Generating…'; btnDL.disabled=true;
+  btnDL.innerHTML = '⏳ Generating…'; btnDL.disabled = true;
   try {
     const { PDFDocument } = PDFLib;
     const doc = await PDFDocument.load(origBytes);
@@ -790,35 +816,39 @@ btnDL.addEventListener('click', async ()=>{
  
     for (const [pgStr, pgPlacements] of Object.entries(placements)) {
       const pgNum = parseInt(pgStr);
-      const pdfPage = pages[pgNum-1]; if (!pdfPage) continue;
-      const { width:pdfW, height:pdfH } = pdfPage.getSize();
+      const pdfPage = pages[pgNum - 1];
+      if (!pdfPage) continue;
+      const { width: pdfW, height: pdfH } = pdfPage.getSize();
       const renderedPg = await pdfDoc.getPage(pgNum);
       const vp = renderedPg.getViewport({ scale });
-      const sx=pdfW/vp.width, sy=pdfH/vp.height;
+      const sx = pdfW / vp.width, sy = pdfH / vp.height;
  
       for (const p of pgPlacements) {
         try {
           const resp = await fetch(p.sigDataUrl);
-          const ab = await resp.arrayBuffer();
+          const ab = await (await resp.blob()).arrayBuffer();
           let imgEmbed;
           try { imgEmbed = await doc.embedPng(ab); } catch { imgEmbed = await doc.embedJpg(ab); }
           pdfPage.drawImage(imgEmbed, {
-            x: p.x*sx, y: pdfH-(p.y*sy)-(p.h*sy),
-            width: p.w*sx, height: p.h*sy,
+            x: p.x * sx,
+            y: pdfH - (p.y * sy) - (p.h * sy),
+            width: p.w * sx,
+            height: p.h * sy,
           });
-        } catch(err) { console.warn('Sig embed error:', err); }
+        } catch (imgErr) { console.warn('Could not embed one image:', imgErr); }
       }
     }
  
     const out = await doc.save();
-    const blob = new Blob([out], {type:'application/pdf'});
+    const blob = new Blob([out], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download='signed-helpingpdf.pdf'; a.click();
-    setTimeout(()=>URL.revokeObjectURL(url), 5000);
-  } catch(err) {
-    console.error(err); alert('Error generating PDF. Please try again.');
+    const a = document.createElement('a'); a.href = url; a.download = 'signed-helpingpdf.pdf'; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  } catch (err) {
+    console.error(err);
+    alert('Error generating PDF. Please try again.');
   }
-  btnDL.innerHTML='⬇ <span class="dl-label">Download PDF</span>'; btnDL.disabled=false;
+  btnDL.innerHTML = '⬇ <span class="dl-label">Download PDF</span>'; btnDL.disabled = false;
 });
 </script>
 </body>
