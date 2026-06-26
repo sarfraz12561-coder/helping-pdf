@@ -91,6 +91,11 @@ function renderToolGrid() {
                 window.location.href = 'filler.html';
                 return;
     }
+  
+    if (toolId === 'signer' || toolId === 'pdf-signer' || toolId === 'sign-pdf') {
+    window.location.href = 'signer.html';
+    return;
+    }       
             
             
             // اگر کمپریس پی ڈی ایف کا کارڈ کلک ہو تو سیدھا compressor.html پر بھیجو
