@@ -98,9 +98,14 @@
       .article-header, .article-body { padding: 20px; }
       nav a { display: none; }
     }
-  </style>
+    /* FLOATING HOME */
+    .floating-home { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: #2563eb; color: white; border: none; border-radius: 50px; padding: 12px 18px; font-size: 0.82rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 16px rgba(37,99,235,0.45); display: flex; align-items: center; gap: 7px; text-decoration: none; transition: all 0.2s; }
+    .floating-home:hover { background: #1d4ed8; transform: translateY(-2px); }
+</style>
 </head>
 <body>
+ 
+<a href="https://www.helpingpdf.com/" class="floating-home" aria-label="Go to homepage">🏠 Home</a>
  
 <header>
   <a href="https://www.helpingpdf.com/" class="logo">📄 Helping PDF</a>
@@ -231,4 +236,3 @@
  
 </body>
 </html>
- 
